@@ -1,13 +1,15 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { process } from '@/routes/transactions';
 import { type GiftCard } from '@/types/giftCard';
 import { router } from '@inertiajs/react';
-import { useState } from 'react';
-import { Search, CreditCard, DollarSign } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { Search, CreditCard, DollarSign, Camera, X } from 'lucide-react';
+import { Html5QrcodeScanner } from 'html5-qrcode';
 
 export function TransactionForm() {
     const [codigo, setCodigo] = useState('');
@@ -18,17 +20,22 @@ export function TransactionForm() {
     const [loading, setLoading] = useState(false);
     const [searchLoading, setSearchLoading] = useState(false);
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const [showQrScanner, setShowQrScanner] = useState(false);
+    const qrScannerRef = useRef<Html5QrcodeScanner | null>(null);
 
-    const buscarTarjeta = async () => {
-        if (!codigo.trim()) return;
+    const buscarTarjeta = async (codigoABuscar?: string) => {
+        const codigoToSearch = codigoABuscar || codigo;
+        if (!codigoToSearch.trim()) return;
 
         setSearchLoading(true);
         try {
-            const response = await fetch(`/api/gift-cards/by-codigo/${codigo}`);
+            const response = await fetch(`/api/gift-cards/by-codigo/${codigoToSearch}`);
             if (response.ok) {
                 const data = await response.json();
                 setTarjeta(data);
+                setCodigo(codigoToSearch);
                 setErrors({});
+                setShowQrScanner(false); // Cerrar scanner si estaba abierto
             } else {
                 setTarjeta(null);
                 setErrors({ codigo: 'Tarjeta no encontrada' });
@@ -39,6 +46,47 @@ export function TransactionForm() {
         }
         setSearchLoading(false);
     };
+
+    const iniciarQrScanner = () => {
+        setShowQrScanner(true);
+    };
+
+    const detenerQrScanner = () => {
+        if (qrScannerRef.current) {
+            qrScannerRef.current.clear().catch(console.error);
+            qrScannerRef.current = null;
+        }
+        setShowQrScanner(false);
+    };
+
+    useEffect(() => {
+        if (showQrScanner) {
+            qrScannerRef.current = new Html5QrcodeScanner(
+                'qr-reader',
+                {
+                    fps: 10,
+                    qrbox: { width: 250, height: 250 },
+                    aspectRatio: 1.0,
+                },
+                false
+            );
+
+            qrScannerRef.current.render(
+                (decodedText) => {
+                    buscarTarjeta(decodedText);
+                },
+                (error) => {
+                    console.log('QR scan error:', error);
+                }
+            );
+        }
+
+        return () => {
+            if (qrScannerRef.current) {
+                qrScannerRef.current.clear().catch(console.error);
+            }
+        };
+    }, [showQrScanner]);
 
     const procesarTransaccion = (e: React.FormEvent) => {
         e.preventDefault();
@@ -93,10 +141,29 @@ export function TransactionForm() {
                                 <p className="text-sm text-red-600 mt-1">{errors.codigo}</p>
                             )}
                         </div>
-                        <div className="flex items-end">
-                            <Button onClick={buscarTarjeta} disabled={searchLoading}>
+                        <div className="flex items-end gap-2">
+                            <Button onClick={() => buscarTarjeta()} disabled={searchLoading}>
                                 {searchLoading ? 'Buscando...' : 'Buscar'}
                             </Button>
+                            <Dialog open={showQrScanner} onOpenChange={setShowQrScanner}>
+                                <DialogTrigger asChild>
+                                    <Button variant="outline" onClick={iniciarQrScanner}>
+                                        <Camera className="h-4 w-4" />
+                                    </Button>
+                                </DialogTrigger>
+                                <DialogContent className="sm:max-w-md">
+                                    <DialogHeader>
+                                        <DialogTitle>Escanear Código QR</DialogTitle>
+                                    </DialogHeader>
+                                    <div className="flex flex-col items-center space-y-4">
+                                        <div id="qr-reader" className="w-full"></div>
+                                        <Button variant="outline" onClick={detenerQrScanner}>
+                                            <X className="h-4 w-4 mr-2" />
+                                            Cerrar
+                                        </Button>
+                                    </div>
+                                </DialogContent>
+                            </Dialog>
                         </div>
                     </div>
                 </CardContent>

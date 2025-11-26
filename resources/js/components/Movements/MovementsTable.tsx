@@ -10,10 +10,13 @@ import {
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Label } from '@/components/ui/label';
 import { useEffect, useState } from 'react';
 import { router } from '@inertiajs/react';
 import { index as movementsIndex } from '@/routes/movements';
-import { Search, Filter } from 'lucide-react';
+import { Search, Filter, Calendar, X } from 'lucide-react';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 interface MovementsTableProps {
     movimientos: any;
@@ -22,22 +25,32 @@ interface MovementsTableProps {
         search?: string;
         per_page?: number;
         tarjeta_id?: string;
+        fecha_desde?: string;
+        fecha_hasta?: string;
+        tipo_movimiento?: string;
     };
 }
 
 export function MovementsTable({ movimientos, tarjetas, filters }: MovementsTableProps) {
     const [search, setSearch] = useState(filters.search || '');
     const [selectedTarjeta, setSelectedTarjeta] = useState(filters.tarjeta_id || 'all');
+    const [fechaDesde, setFechaDesde] = useState(filters.fecha_desde || '');
+    const [fechaHasta, setFechaHasta] = useState(filters.fecha_hasta || '');
+    const [tipoMovimiento, setTipoMovimiento] = useState(filters.tipo_movimiento || '');
+    const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
     useEffect(() => {
         const timeout = setTimeout(() => {
             router.get(movementsIndex().url, {
                 search,
-                tarjeta_id: selectedTarjeta === 'all' ? undefined : selectedTarjeta
+                tarjeta_id: selectedTarjeta === 'all' ? undefined : selectedTarjeta,
+                fecha_desde: fechaDesde || undefined,
+                fecha_hasta: fechaHasta || undefined,
+                tipo_movimiento: tipoMovimiento || undefined,
             }, { preserveState: true });
         }, 400);
         return () => clearTimeout(timeout);
-    }, [search, selectedTarjeta]);
+    }, [search, selectedTarjeta, fechaDesde, fechaHasta, tipoMovimiento]);
 
     const formatCurrency = (amount: string) => `$${parseFloat(amount).toFixed(2)}`;
 
@@ -79,7 +92,74 @@ export function MovementsTable({ movimientos, tarjetas, filters }: MovementsTabl
                         </SelectContent>
                     </Select>
                 </div>
+                <Collapsible open={showAdvancedFilters} onOpenChange={setShowAdvancedFilters}>
+                    <CollapsibleTrigger asChild>
+                        <Button variant="outline" size="sm">
+                            <Calendar className="h-4 w-4 mr-2" />
+                            Filtros Avanzados
+                        </Button>
+                    </CollapsibleTrigger>
+                </Collapsible>
             </div>
+
+            <Collapsible open={showAdvancedFilters} onOpenChange={setShowAdvancedFilters}>
+                <CollapsibleContent className="space-y-4">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="text-lg">Filtros Avanzados</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="space-y-2">
+                                    <Label htmlFor="fecha_desde">Fecha Desde</Label>
+                                    <Input
+                                        id="fecha_desde"
+                                        type="date"
+                                        value={fechaDesde}
+                                        onChange={(e) => setFechaDesde(e.target.value)}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="fecha_hasta">Fecha Hasta</Label>
+                                    <Input
+                                        id="fecha_hasta"
+                                        type="date"
+                                        value={fechaHasta}
+                                        onChange={(e) => setFechaHasta(e.target.value)}
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <Label htmlFor="tipo_movimiento">Tipo de Movimiento</Label>
+                                    <Select value={tipoMovimiento} onValueChange={setTipoMovimiento}>
+                                        <SelectTrigger>
+                                            <SelectValue placeholder="Todos los tipos" />
+                                        </SelectTrigger>
+                                        <SelectContent>
+                                            <SelectItem value="">Todos los tipos</SelectItem>
+                                            <SelectItem value="carga">Cargas</SelectItem>
+                                            <SelectItem value="cargo">Cargos</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                </div>
+                            </div>
+                            <div className="flex justify-end mt-4">
+                                <Button
+                                    variant="outline"
+                                    size="sm"
+                                    onClick={() => {
+                                        setFechaDesde('');
+                                        setFechaHasta('');
+                                        setTipoMovimiento('');
+                                    }}
+                                >
+                                    <X className="h-4 w-4 mr-2" />
+                                    Limpiar Filtros
+                                </Button>
+                            </div>
+                        </CardContent>
+                    </Card>
+                </CollapsibleContent>
+            </Collapsible>
 
             <div className="rounded-md border">
                 <Table>

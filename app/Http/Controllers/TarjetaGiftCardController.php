@@ -56,7 +56,7 @@ class TarjetaGiftCardController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'codigo_unico' => ['required', 'string', 'max:255', Rule::unique('tarjeta_gift_cards')],
+            'codigo_unico' => ['required', 'string', Rule::unique('tarjeta_gift_cards')],
             'saldo_inicial' => ['required', 'numeric', 'min:0', 'max:999999.99'],
             'tipo' => ['nullable', 'string', 'max:100'],
             'fecha_expiracion' => ['nullable', 'date', 'after_or_equal:today'],
@@ -140,7 +140,7 @@ class TarjetaGiftCardController extends Controller
     public function update(Request $request, TarjetaGiftCard $tarjetaGiftCard)
     {
         $validated = $request->validate([
-            'codigo_unico' => ['required', 'string', 'max:255', Rule::unique('tarjeta_gift_cards')->ignore($tarjetaGiftCard->id)],
+            'codigo_unico' => ['required', 'string', Rule::unique('tarjeta_gift_cards')->ignore($tarjetaGiftCard->id)],
             'saldo_actual' => ['required', 'numeric', 'min:0'],
             'cliente_id' => ['nullable', 'exists:clientes,id'],
             'tipo' => ['nullable', 'string', 'max:100'],
@@ -222,6 +222,81 @@ class TarjetaGiftCardController extends Controller
     }
 
     /**
+     * Mostrar dashboard con estadísticas.
+     */
+    public function dashboard(): Response
+    {
+        // Estadísticas generales
+        $totalTarjetas = \App\Models\TarjetaGiftCard::count();
+        $tarjetasActivas = \App\Models\TarjetaGiftCard::where('estado', 'activa')->count();
+        $tarjetasInactivas = \App\Models\TarjetaGiftCard::where('estado', 'inactiva')->count();
+
+        // Ingresos totales
+        $ingresosTotales = \App\Models\Movimiento::where('tipo_movimiento', 'carga')->sum('monto');
+        $egresosTotales = \App\Models\Movimiento::where('tipo_movimiento', 'cargo')->sum('monto');
+        $saldoNeto = $ingresosTotales - $egresosTotales;
+
+        // Movimientos del último mes
+        $movimientosUltimoMes = \App\Models\Movimiento::where('created_at', '>=', now()->subMonth())->count();
+
+        // Ingresos por día (últimos 30 días)
+        $ingresosPorDia = \App\Models\Movimiento::selectRaw('DATE(created_at) as fecha, SUM(monto) as total')
+            ->where('tipo_movimiento', 'carga')
+            ->where('created_at', '>=', now()->subDays(30))
+            ->groupBy('fecha')
+            ->orderBy('fecha')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'fecha' => $item->fecha,
+                    'total' => (float) $item->total,
+                ];
+            });
+
+        // Top clientes por gasto
+        $topClientes = \App\Models\Movimiento::selectRaw('clientes.nombre, clientes.apellido_paterno, SUM(movimientos.monto) as total_gastado')
+            ->join('tarjeta_gift_cards', 'movimientos.tarjeta_gift_card_id', '=', 'tarjeta_gift_cards.id')
+            ->join('clientes', 'tarjeta_gift_cards.cliente_id', '=', 'clientes.id')
+            ->where('movimientos.tipo_movimiento', 'cargo')
+            ->groupBy('clientes.id', 'clientes.nombre', 'clientes.apellido_paterno')
+            ->orderBy('total_gastado', 'desc')
+            ->limit(10)
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'nombre' => $item->nombre . ' ' . $item->apellido_paterno,
+                    'total_gastado' => (float) $item->total_gastado,
+                ];
+            });
+
+        // Movimientos por tipo
+        $movimientosPorTipo = \App\Models\Movimiento::selectRaw('tipo_movimiento, COUNT(*) as cantidad')
+            ->groupBy('tipo_movimiento')
+            ->get()
+            ->map(function ($item) {
+                return [
+                    'tipo' => $item->tipo_movimiento,
+                    'cantidad' => (int) $item->cantidad,
+                ];
+            });
+
+        return Inertia::render('Dashboard/Index', [
+            'stats' => [
+                'total_tarjetas' => $totalTarjetas,
+                'tarjetas_activas' => $tarjetasActivas,
+                'tarjetas_inactivas' => $tarjetasInactivas,
+                'ingresos_totales' => (float) $ingresosTotales,
+                'egresos_totales' => (float) $egresosTotales,
+                'saldo_neto' => (float) $saldoNeto,
+                'movimientos_ultimo_mes' => $movimientosUltimoMes,
+            ],
+            'ingresos_por_dia' => $ingresosPorDia,
+            'top_clientes' => $topClientes,
+            'movimientos_por_tipo' => $movimientosPorTipo,
+        ]);
+    }
+
+    /**
      * Mostrar historial de movimientos (global o por tarjeta).
      */
     public function movements(Request $request): Response
@@ -229,6 +304,9 @@ class TarjetaGiftCardController extends Controller
         $search = $request->input('search');
         $perPage = $request->input('per_page', 15);
         $tarjetaId = $request->input('tarjeta_id');
+        $fechaDesde = $request->input('fecha_desde');
+        $fechaHasta = $request->input('fecha_hasta');
+        $tipoMovimiento = $request->input('tipo_movimiento');
 
         $query = \App\Models\Movimiento::with(['tarjetaGiftCard:id,codigo_unico', 'user:id,name'])
             ->latest();
@@ -236,6 +314,19 @@ class TarjetaGiftCardController extends Controller
         // Filtrar por tarjeta específica si se proporciona
         if ($tarjetaId) {
             $query->where('tarjeta_gift_card_id', $tarjetaId);
+        }
+
+        // Filtros de fecha
+        if ($fechaDesde) {
+            $query->whereDate('created_at', '>=', $fechaDesde);
+        }
+        if ($fechaHasta) {
+            $query->whereDate('created_at', '<=', $fechaHasta);
+        }
+
+        // Filtro por tipo de movimiento
+        if ($tipoMovimiento) {
+            $query->where('tipo_movimiento', $tipoMovimiento);
         }
 
         if ($search) {
@@ -254,7 +345,7 @@ class TarjetaGiftCardController extends Controller
         return Inertia::render('Movements/Index', [
             'movimientos' => $movimientos,
             'tarjetas' => $tarjetas,
-            'filters' => $request->only(['search', 'per_page', 'tarjeta_id']),
+            'filters' => $request->only(['search', 'per_page', 'tarjeta_id', 'fecha_desde', 'fecha_hasta', 'tipo_movimiento']),
         ]);
     }
 
