@@ -1,6 +1,7 @@
 // resources/js/components/GiftCards/DataTable.tsx
 import { GiftCard, PaginatedGiftCards } from '@/types/giftCard';
-import { Link } from '@inertiajs/react';
+import { show, edit, destroy } from '@/routes/gift-cards';
+import { Link, router } from '@inertiajs/react';
 import {
   Table,
   TableBody,
@@ -12,6 +13,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useEffect, useState } from 'react';
+import { Edit, Eye, Trash2 } from 'lucide-react';
 
 interface DataTableProps {
   data: PaginatedGiftCards;
@@ -37,37 +39,57 @@ export function DataTable({ data, onSearch, initialSearch = '' }: DataTableProps
       />
       <Table>
         <TableHeader>
-          <TableRow>
-            <TableHead>Código</TableHead>
-            <TableHead>Saldo</TableHead>
-            <TableHead>Cliente</TableHead>
-            <TableHead>Estado</TableHead>
-            <TableHead>Acciones</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {data.data.map((tarjeta) => (
-            <TableRow key={tarjeta.id}>
-              <TableCell className="font-mono">{tarjeta.codigo_unico}</TableCell>
-              <TableCell>${tarjeta.saldo_actual}</TableCell>
-              <TableCell>
-                {tarjeta.cliente 
-                  ? `${tarjeta.cliente.nombre} ${tarjeta.cliente.apellido_paterno}` 
-                  : <span className="text-muted-foreground">Sin cliente</span>}
-              </TableCell>
-              <TableCell>
-                <span className={tarjeta.estado === 'activa' ? 'text-green-600' : 'text-red-600'}>
-                  {tarjeta.estado}
-                </span>
-              </TableCell>
-              <TableCell>
-                <Button asChild size="sm" variant="outline">
-                  <Link href={route('gift-cards.show', tarjeta.id)}>Ver</Link>
-                </Button>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
+           <TableRow>
+             <TableHead>Código</TableHead>
+             <TableHead>Saldo</TableHead>
+             <TableHead>Cliente</TableHead>
+             <TableHead>Estado</TableHead>
+             <TableHead>Acciones</TableHead>
+           </TableRow>
+         </TableHeader>
+         <TableBody>
+           {data.data.map((tarjeta) => (
+             <TableRow key={tarjeta.id}>
+               <TableCell className="font-mono">{tarjeta.codigo_unico}</TableCell>
+               <TableCell>${tarjeta.saldo_actual}</TableCell>
+               <TableCell>
+                 {tarjeta.cliente
+                   ? `${tarjeta.cliente.nombre} ${tarjeta.cliente.apellido_paterno}`
+                   : <span className="text-muted-foreground">Sin cliente</span>}
+               </TableCell>
+               <TableCell>
+                 <span className={tarjeta.estado === 'activa' ? 'text-green-600' : 'text-red-600'}>
+                   {tarjeta.estado}
+                 </span>
+               </TableCell>
+               <TableCell>
+                 <div className="flex space-x-2">
+                   <Button asChild size="sm" variant="outline">
+                     <Link href={show(tarjeta).url}>
+                       <Eye className="h-4 w-4" />
+                     </Link>
+                   </Button>
+                   <Button asChild size="sm" variant="outline">
+                     <Link href={edit(tarjeta).url}>
+                       <Edit className="h-4 w-4" />
+                     </Link>
+                   </Button>
+                   <Button
+                     size="sm"
+                     variant="outline"
+                     onClick={() => {
+                       if (confirm('¿Estás seguro de eliminar esta tarjeta?')) {
+                         router.delete(destroy(tarjeta).url);
+                       }
+                     }}
+                   >
+                     <Trash2 className="h-4 w-4" />
+                   </Button>
+                 </div>
+               </TableCell>
+             </TableRow>
+           ))}
+         </TableBody>
       </Table>
     </div>
   );

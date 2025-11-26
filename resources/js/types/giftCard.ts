@@ -4,7 +4,17 @@ export interface Cliente {
   id: number;
   nombre: string;
   apellido_paterno: string;
+  apellido_materno?: string;
+  ci: string;
   email?: string;
+  celular?: string;
+  direccion?: string;
+  fecha_nacimiento?: string;
+  genero?: 'M' | 'F';
+  activo: boolean;
+  user?: User;
+  created_at: string;
+  updated_at: string;
 }
 
 export interface User {
@@ -27,6 +37,17 @@ export interface GiftCard {
 
 export interface PaginatedGiftCards {
   data: GiftCard[];
+  meta: {
+    current_page: number;
+    last_page: number;
+    per_page: number;
+    total: number;
+  };
+  links: Array<{ url: string | null; label: string; active: boolean }>;
+}
+
+export interface PaginatedClientes {
+  data: Cliente[];
   meta: {
     current_page: number;
     last_page: number;

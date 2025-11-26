@@ -84,7 +84,9 @@ class TarjetaGiftCardController extends Controller
      */
     public function show(TarjetaGiftCard $tarjetaGiftCard): Response
     {
-        $tarjetaGiftCard->load(['cliente', 'user']);
+        $tarjetaGiftCard->load(['cliente', 'user', 'movimientos' => function($q) {
+            $q->with('user:id,name')->latest();
+        }]);
         $clientesDisponibles = Cliente::where('activo', true)
             ->when($tarjetaGiftCard->cliente_id, fn($q) => $q->whereNot('id', $tarjetaGiftCard->cliente_id))
             ->get(['id', 'nombre', 'apellido_paterno']);
