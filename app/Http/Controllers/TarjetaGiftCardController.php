@@ -162,6 +162,103 @@ class TarjetaGiftCardController extends Controller
     }
 
     /**
+     * Procesar transacción (carga o cargo) en una tarjeta.
+     */
+    public function processTransaction(Request $request)
+    {
+        $request->validate([
+            'codigo_unico' => 'required|string|exists:tarjeta_gift_cards,codigo_unico',
+            'tipo' => 'required|in:carga,cargo',
+            'monto' => 'required|numeric|min:0.01',
+            'descripcion' => 'nullable|string|max:255',
+        ]);
+
+        $tarjeta = TarjetaGiftCard::where('codigo_unico', $request->codigo_unico)->firstOrFail();
+
+        if ($tarjeta->estado !== 'activa') {
+            return back()->withErrors(['codigo_unico' => 'La tarjeta no está activa.']);
+        }
+
+        $monto = $request->monto;
+        $tipo = $request->tipo;
+        $saldoAnterior = $tarjeta->saldo_actual;
+
+        if ($tipo === 'cargo' && $saldoAnterior < $monto) {
+            return back()->withErrors(['monto' => 'Saldo insuficiente para realizar el cargo.']);
+        }
+
+        $nuevoSaldo = $tipo === 'carga' ? $saldoAnterior + $monto : $saldoAnterior - $monto;
+
+        DB::beginTransaction();
+        try {
+            // Actualizar saldo de la tarjeta
+            $tarjeta->update(['saldo_actual' => $nuevoSaldo]);
+
+            // Crear registro de movimiento
+            $tarjeta->movimientos()->create([
+                'tipo_movimiento' => $tipo,
+                'monto' => $monto,
+                'saldo_anterior' => $saldoAnterior,
+                'saldo_nuevo' => $nuevoSaldo,
+                'descripcion' => $request->descripcion,
+                'user_id' => auth()->id(),
+            ]);
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withErrors(['error' => 'Error al procesar la transacción.']);
+        }
+
+        return back()->with('success', ucfirst($tipo) . ' procesada exitosamente. Nuevo saldo: $' . number_format($nuevoSaldo, 2));
+    }
+
+    /**
+     * Mostrar página de transacciones.
+     */
+    public function transactions(): Response
+    {
+        return Inertia::render('Transactions/Index');
+    }
+
+    /**
+     * Mostrar historial de movimientos (global o por tarjeta).
+     */
+    public function movements(Request $request): Response
+    {
+        $search = $request->input('search');
+        $perPage = $request->input('per_page', 15);
+        $tarjetaId = $request->input('tarjeta_id');
+
+        $query = \App\Models\Movimiento::with(['tarjetaGiftCard:id,codigo_unico', 'user:id,name'])
+            ->latest();
+
+        // Filtrar por tarjeta específica si se proporciona
+        if ($tarjetaId) {
+            $query->where('tarjeta_gift_card_id', $tarjetaId);
+        }
+
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->whereHas('tarjetaGiftCard', fn($tq) => $tq->where('codigo_unico', 'like', "%{$search}%"))
+                  ->orWhere('tipo_movimiento', 'like', "%{$search}%")
+                  ->orWhere('descripcion', 'like', "%{$search}%");
+            });
+        }
+
+        $movimientos = $query->paginate($perPage)->withQueryString();
+
+        // Obtener todas las tarjetas para el selector
+        $tarjetas = \App\Models\TarjetaGiftCard::select('id', 'codigo_unico')->get();
+
+        return Inertia::render('Movements/Index', [
+            'movimientos' => $movimientos,
+            'tarjetas' => $tarjetas,
+            'filters' => $request->only(['search', 'per_page', 'tarjeta_id']),
+        ]);
+    }
+
+    /**
      * Endpoint para búsqueda por código (útil en React para escáner QR).
      */
     public function findByCodigo(string $codigo)

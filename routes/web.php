@@ -37,6 +37,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::put('/gift-cards/{tarjetaGiftCard}', [TarjetaGiftCardController::class, 'update'])->name('gift-cards.update');
     Route::delete('/gift-cards/{tarjetaGiftCard}', [TarjetaGiftCardController::class, 'destroy'])->name('gift-cards.destroy');
 
+    // Transacciones
+    Route::get('/transactions', [TarjetaGiftCardController::class, 'transactions'])->name('transactions.index');
+    Route::post('/transactions', [TarjetaGiftCardController::class, 'processTransaction'])->name('transactions.process');
+
+    // Movimientos/Historial
+    Route::get('/movements', [TarjetaGiftCardController::class, 'movements'])->name('movements.index');
+
 });
 //para las tarjetas de regalo
 Route::get('/api/gift-cards/by-codigo/{codigo}', [TarjetaGiftCardController::class, 'findByCodigo']);
