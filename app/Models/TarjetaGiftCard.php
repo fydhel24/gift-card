@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TarjetaGiftCard extends Model
@@ -35,6 +36,11 @@ class TarjetaGiftCard extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(\App\Models\User::class);
+    }
+
+    public function movimientos(): HasMany
+    {
+        return $this->hasMany(\App\Models\Movimiento::class);
     }
 
 }

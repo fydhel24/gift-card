@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
-import { DataTable } from '@/components/GiftCards/DataTable';
+import { ClientesDataTable } from '@/components/Clientes/ClientesDataTable';
 import AppLayout from '@/layouts/app-layout';
-import { create as giftCardsCreate, index as giftCardsIndex } from '@/routes/gift-cards';
+import { create as clientesCreate, index as clientesIndex } from '@/routes/clientes';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link, router, usePage } from '@inertiajs/react';
 import { Plus } from 'lucide-react';
@@ -12,41 +12,41 @@ const breadcrumbs: BreadcrumbItem[] = [
         href: '/dashboard',
     },
     {
-        title: 'Tarjetas de Regalo',
-        href: giftCardsIndex().url,
+        title: 'Clientes',
+        href: clientesIndex().url,
     },
 ];
 
 export default function Index() {
     const page = usePage();
-    const { tarjetas, filters } = page.props as any;
+    const { clientes, filters } = page.props as any;
 
     const handleSearch = (search: string) => {
-        router.get(giftCardsIndex().url, { search }, { preserveState: true });
+        router.get(clientesIndex().url, { search }, { preserveState: true });
     };
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Tarjetas de Regalo" />
+            <Head title="Gestión de Clientes" />
 
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-2xl font-bold">Tarjetas de Regalo</h1>
+                        <h1 className="text-2xl font-bold">Gestión de Clientes</h1>
                         <p className="text-muted-foreground">
-                            Gestiona las tarjetas de regalo del sistema.
+                            Administre la información de sus clientes registrados en el sistema.
                         </p>
                     </div>
                     <Button asChild>
-                        <Link href={giftCardsCreate().url}>
+                        <Link href={clientesCreate().url}>
                             <Plus className="mr-2 h-4 w-4" />
-                            Nueva Tarjeta
+                            Nuevo Cliente
                         </Link>
                     </Button>
                 </div>
 
-                <DataTable
-                    data={tarjetas}
+                <ClientesDataTable
+                    data={clientes}
                     onSearch={handleSearch}
                     initialSearch={filters.search || ''}
                 />
