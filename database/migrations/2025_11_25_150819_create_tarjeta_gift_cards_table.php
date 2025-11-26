@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum('estado', ['activa', 'inactiva'])->default('activa');
             $table->date('fecha_expiracion')->nullable();
             $table->string('tipo')->nullable();
-            $table->foreignId('cliente_id')->constrained()->onDelete('cascade');
+            $table->foreignId('cliente_id')->nullable()->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
             $table->softDeletes();
