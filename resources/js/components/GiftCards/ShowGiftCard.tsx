@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { CodeDisplay } from '@/components/ui/code-display';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -8,6 +9,7 @@ import { type GiftCard } from '@/types/giftCard';
 import { Link, router } from '@inertiajs/react';
 import { useState } from 'react';
 import { Edit, UserMinus, UserPlus } from 'lucide-react';
+import { QRDialog } from './QRDialog';
 
 interface ShowGiftCardProps {
     tarjeta: GiftCard & { movimientos?: any[] };
@@ -45,7 +47,7 @@ export function ShowGiftCard({ tarjeta, clientesDisponibles }: ShowGiftCardProps
                     <div className="grid grid-cols-2 gap-4">
                         <div>
                             <Label>Código Único</Label>
-                            <p className="font-mono">{tarjeta.codigo_unico}</p>
+                            <CodeDisplay code={tarjeta.codigo_unico} />
                         </div>
                         <div>
                             <Label>Saldo Actual</Label>
@@ -157,7 +159,9 @@ export function ShowGiftCard({ tarjeta, clientesDisponibles }: ShowGiftCardProps
                 </Card>
             )}
 
-            <div className="flex justify-end">
+            <div className="flex justify-end space-x-2">
+                <QRDialog codigoUnico={tarjeta.codigo_unico} />
+
                 <Button asChild>
                     <Link href={edit(tarjeta).url}>
                         <Edit className="mr-2 h-4 w-4" />

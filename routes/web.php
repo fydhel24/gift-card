@@ -13,9 +13,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard');
+    Route::get('dashboard', [TarjetaGiftCardController::class, 'dashboard'])->name('dashboard');
 
     // Clientes
     Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes.index');
@@ -36,6 +34,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/gift-cards/{tarjetaGiftCard}/edit', [TarjetaGiftCardController::class, 'edit'])->name('gift-cards.edit');
     Route::put('/gift-cards/{tarjetaGiftCard}', [TarjetaGiftCardController::class, 'update'])->name('gift-cards.update');
     Route::delete('/gift-cards/{tarjetaGiftCard}', [TarjetaGiftCardController::class, 'destroy'])->name('gift-cards.destroy');
+
+    // Transacciones
+    Route::get('/transactions', [TarjetaGiftCardController::class, 'transactions'])->name('transactions.index');
+    Route::post('/transactions', [TarjetaGiftCardController::class, 'processTransaction'])->name('transactions.process');
+
+    // Movimientos/Historial
+    Route::get('/movements', [TarjetaGiftCardController::class, 'movements'])->name('movements.index');
 
 });
 //para las tarjetas de regalo

@@ -32,9 +32,11 @@ import { cn, isSameUrl, resolveUrl } from '@/lib/utils';
 import { dashboard } from '@/routes';
 import { index as giftCardsIndex } from '@/routes/gift-cards';
 import { index as clientesIndex } from '@/routes/clientes';
+import { index as transactionsIndex } from '@/routes/transactions';
+import { index as movementsIndex } from '@/routes/movements';
 import { type BreadcrumbItem, type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { BookOpen, CreditCard, Folder, LayoutGrid, Menu, Search, Users } from 'lucide-react';
+import { BookOpen, CreditCard, DollarSign, Folder, History, LayoutGrid, Menu, Search, Users } from 'lucide-react';
 import AppLogo from './app-logo';
 import AppLogoIcon from './app-logo-icon';
 
@@ -53,6 +55,16 @@ const mainNavItems: NavItem[] = [
         title: 'Tarjetas de Regalo',
         href: giftCardsIndex().url,
         icon: CreditCard,
+    },
+    {
+        title: 'Transacciones',
+        href: transactionsIndex().url,
+        icon: DollarSign,
+    },
+    {
+        title: 'Historial',
+        href: movementsIndex().url,
+        icon: History,
     },
 ];
 

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tarjeta_gift_cards', function (Blueprint $table) {
             $table->id();
-            $table->string('codigo_unico')->unique();
+            $table->text('codigo_unico')->unique();
             $table->decimal('saldo_inicial', 10, 2);
             $table->decimal('saldo_actual', 10, 2);
             $table->text('url_qr')->nullable();
