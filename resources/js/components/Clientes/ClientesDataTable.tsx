@@ -12,6 +12,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import { RoleGuard } from '@/components/RoleGuard';
 import { useEffect, useState } from 'react';
 import { Edit, Eye, Trash2 } from 'lucide-react';
 
@@ -74,17 +75,19 @@ export function ClientesDataTable({ data, onSearch, initialSearch = '' }: DataTa
                       <Edit className="h-4 w-4" />
                     </Link>
                   </Button>
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    onClick={() => {
-                      if (confirm('¿Está seguro de eliminar este cliente?')) {
-                        router.delete(destroy(cliente).url);
-                      }
-                    }}
-                  >
-                    <Trash2 className="h-4 w-4" />
-                  </Button>
+                  <RoleGuard roles={['admin']}>
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      onClick={() => {
+                        if (confirm('¿Está seguro de eliminar este cliente?')) {
+                          router.delete(destroy(cliente).url);
+                        }
+                      }}
+                    >
+                      <Trash2 className="h-4 w-4" />
+                    </Button>
+                  </RoleGuard>
                 </div>
               </TableCell>
             </TableRow>

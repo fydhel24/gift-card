@@ -416,9 +416,7 @@ class TarjetaGiftCardController extends Controller
             ->latest()
             ->paginate(15);
 
-        $clientes = \App\Models\Cliente::where('activo', true)
-            ->select('id', 'nombre', 'apellido_paterno', 'ci')
-            ->get();
+        $clientes = \App\Models\Cliente::where('activo', true)->get();
 
         return Inertia::render('Encargado/AsignarTarjetas', [
             'tarjetas' => $tarjetasSinAsignar,

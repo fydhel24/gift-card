@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { RoleGuard } from '@/components/RoleGuard';
 import { useEffect, useState } from 'react';
 import { Edit, Eye, Trash2, EyeOff, ChevronDown, ChevronUp } from 'lucide-react';
 import { QRDialog } from './QRDialog';
@@ -134,17 +135,19 @@ export function DataTable({ data, onSearch, initialSearch = '' }: DataTableProps
                            <Edit className="h-4 w-4" />
                          </Link>
                        </Button>
-                       <Button
-                         size="sm"
-                         variant="outline"
-                         onClick={() => {
-                           if (confirm('¿Estás seguro de eliminar esta tarjeta?')) {
-                             router.delete(destroy(tarjeta).url);
-                           }
-                         }}
-                       >
-                         <Trash2 className="h-4 w-4" />
-                       </Button>
+                       <RoleGuard roles={['admin']}>
+                         <Button
+                           size="sm"
+                           variant="outline"
+                           onClick={() => {
+                             if (confirm('¿Estás seguro de eliminar esta tarjeta?')) {
+                               router.delete(destroy(tarjeta).url);
+                             }
+                           }}
+                         >
+                           <Trash2 className="h-4 w-4" />
+                         </Button>
+                       </RoleGuard>
                      </div>
                    </TableCell>
                  </TableRow>
