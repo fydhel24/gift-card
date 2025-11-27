@@ -404,4 +404,43 @@ class TarjetaGiftCardController extends Controller
 
         return response()->json($tarjeta);
     }
+
+    /**
+     * Vista para asignar tarjetas a clientes (para encargado).
+     */
+    public function asignarTarjetas(): Response
+    {
+        $tarjetasSinAsignar = TarjetaGiftCard::whereNull('cliente_id')
+            ->where('estado', 'activa')
+            ->with('user')
+            ->latest()
+            ->paginate(15);
+
+        $clientes = \App\Models\Cliente::where('activo', true)
+            ->select('id', 'nombre', 'apellido_paterno', 'ci')
+            ->get();
+
+        return Inertia::render('Encargado/AsignarTarjetas', [
+            'tarjetas' => $tarjetasSinAsignar,
+            'clientes' => $clientes,
+        ]);
+    }
+
+    /**
+     * Asignar una tarjeta específica a un cliente.
+     */
+    public function asignarTarjetaACliente(Request $request, TarjetaGiftCard $tarjeta)
+    {
+        $request->validate([
+            'cliente_id' => 'required|exists:clientes,id',
+        ]);
+
+        try {
+            GiftCardService::associateClient($tarjeta, $request->cliente_id);
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => $e->getMessage()]);
+        }
+
+        return back()->with('success', 'Tarjeta asignada exitosamente al cliente.');
+    }
 }

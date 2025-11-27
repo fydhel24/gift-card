@@ -53,6 +53,10 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+        if (!auth()->user()->hasRole(['admin', 'encargado'])) {
+            abort(403, 'No tienes permisos para acceder a esta sección.');
+        }
+
         $validated = $request->validate([
             'nombre' => ['required', 'string', 'max:255'],
             'apellido_paterno' => ['required', 'string', 'max:255'],
@@ -64,20 +68,38 @@ class ClienteController extends Controller
             'fecha_nacimiento' => ['nullable', 'date', 'before:today'],
             'genero' => ['nullable', Rule::in(['M', 'F'])],
             'activo' => ['boolean'],
+        ], [
+            'ci.unique' => 'El CI ya está registrado.',
+            'email.unique' => 'El email ya está registrado.',
+            'email.email' => 'El email no es válido.',
+            'fecha_nacimiento.before' => 'La fecha de nacimiento debe ser anterior a hoy.',
+            'genero.in' => 'El género debe ser M o F.',
         ]);
-
-        $validated['user_id'] = auth()->id();
 
         DB::beginTransaction();
         try {
+            // Crear usuario para el cliente
+            $username = $validated['ci']; // Usar CI como username único
+            $password = $validated['ci']; // Usar CI como password
+
+            $user = \App\Models\User::create([
+                'name' => $validated['nombre'] . ' ' . $validated['apellido_paterno'],
+                'email' => $validated['email'] ?: $username . '@cliente.com', // Email único
+                'password' => \Illuminate\Support\Facades\Hash::make($password),
+                'email_verified_at' => now(),
+            ]);
+            $user->assignRole('cliente');
+
+            $validated['user_id'] = $user->id;
+
             $cliente = Cliente::create($validated);
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            return back()->withErrors(['error' => 'Error al crear el cliente.']);
+            return back()->withErrors(['error' => 'Error al crear el cliente: ' . $e->getMessage()]);
         }
 
-        return to_route('clientes.show', $cliente)->with('success', 'Cliente creado exitosamente.');
+        return to_route('clientes.show', $cliente)->with('success', 'Cliente creado exitosamente. Usuario: ' . $username . ', Contraseña: ' . $password);
     }
 
     /**
@@ -85,7 +107,9 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente): Response
     {
-        $this->authorize('view', $cliente);
+        if (!auth()->user()->hasAnyRole(['admin', 'encargado', 'cliente'])) {
+            abort(403, 'No tienes permisos para acceder a esta sección.');
+        }
 
         $cliente->load(['user', 'tarjetasGift' => function($q) {
             $q->with('user:id,name')->latest();

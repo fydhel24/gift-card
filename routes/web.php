@@ -15,26 +15,28 @@ Route::get('/', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', [TarjetaGiftCardController::class, 'dashboard'])->name('dashboard');
 
-    // Clientes - Solo admin y encargado pueden gestionar clientes
-    Route::middleware(['role:admin,encargado'])->group(function () {
-        Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes.index');
-        Route::get('/clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
-        Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
-        Route::get('/clientes/{cliente}/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
-        Route::put('/clientes/{cliente}', [ClienteController::class, 'update'])->name('clientes.update');
-        Route::delete('/clientes/{cliente}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
-    });
+    // Clientes - Checks in controller
+    Route::get('/clientes', [ClienteController::class, 'index'])->name('clientes.index');
+    Route::get('/clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
+    Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
+    Route::get('/clientes/{cliente}/edit', [ClienteController::class, 'edit'])->name('clientes.edit');
+    Route::put('/clientes/{cliente}', [ClienteController::class, 'update'])->name('clientes.update');
+    Route::delete('/clientes/{cliente}', [ClienteController::class, 'destroy'])->name('clientes.destroy');
 
     // Cliente puede ver su propio perfil
-    Route::middleware(['role:admin,encargado,cliente'])->group(function () {
-        Route::get('/clientes/{cliente}', [ClienteController::class, 'show'])->name('clientes.show');
-        Route::get('/clientes/mi-perfil', [ClienteController::class, 'miPerfil'])->name('clientes.mi-perfil');
-    });
+    Route::get('/clientes/{cliente}', [ClienteController::class, 'show'])->name('clientes.show');
+    Route::get('/clientes/mi-perfil', [ClienteController::class, 'miPerfil'])->name('clientes.mi-perfil');
 
     // Dashboard específico para clientes
     Route::middleware(['role:cliente'])->group(function () {
         Route::get('/cliente/tarjetas', [App\Http\Controllers\ClienteDashboardController::class, 'tarjetas'])->name('cliente.tarjetas');
         Route::get('/cliente/movimientos', [App\Http\Controllers\ClienteDashboardController::class, 'movimientos'])->name('cliente.movimientos');
+    });
+
+    // Funciones específicas para encargado
+    Route::middleware(['role:encargado'])->group(function () {
+        Route::get('/encargado/asignar-tarjetas', [TarjetaGiftCardController::class, 'asignarTarjetas'])->name('encargado.asignar-tarjetas');
+        Route::post('/encargado/asignar-tarjeta/{tarjeta}', [TarjetaGiftCardController::class, 'asignarTarjetaACliente'])->name('encargado.asignar-tarjeta');
     });
 
     //para las tarjetas de regalo
@@ -44,7 +46,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     // Show para todos con policy
-    Route::middleware(['role:admin,encargado,cliente'])->group(function () {
+    Route::middleware(['role:admin|encargado|cliente'])->group(function () {
         Route::get('/gift-cards/{tarjetaGiftCard}', [TarjetaGiftCardController::class, 'show'])->name('gift-cards.show');
     });
 

@@ -80,6 +80,12 @@ const mainNavItems: NavItem[] = [
         roles: ['admin'], // Solo admin gestiona usuarios
     },
     {
+        title: 'Asignar Tarjeta',
+        href: '/encargado/asignar-tarjetas',
+        icon: CreditCard,
+        roles: ['encargado'], // Solo encargado asigna tarjetas
+    },
+    {
         title: 'Mis Tarjetas',
         href: '/cliente/tarjetas',
         icon: CreditCard,
