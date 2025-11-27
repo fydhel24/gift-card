@@ -1,8 +1,9 @@
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import AppLayout from '@/layouts/app-layout';
 import { type BreadcrumbItem } from '@/types';
-import { Head, usePage } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
 import {
     BarChart,
     Bar,
@@ -41,7 +42,9 @@ export default function Index() {
         stats,
         ingresos_por_dia,
         top_clientes,
-        movimientos_por_tipo
+        movimientos_por_tipo,
+        cliente,
+        isCliente
     } = page.props as any;
 
     const formatCurrency = (value: number) => `$${value.toFixed(2)}`;
@@ -75,6 +78,115 @@ export default function Index() {
         </Card>
     );
 
+    if (isCliente) {
+        // Dashboard para cliente
+        return (
+            <AppLayout breadcrumbs={breadcrumbs}>
+                <Head title="Mi Dashboard" />
+
+                <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <h1 className="text-3xl font-bold">Bienvenido, {cliente.nombre}!</h1>
+                            <p className="text-muted-foreground">
+                                Aquí puedes gestionar tus tarjetas de regalo y ver tus movimientos
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Acciones rápidas */}
+                    <div className="grid gap-4 md:grid-cols-2">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Acciones</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="space-y-2">
+                                    <Button asChild className="w-full" variant="outline">
+                                        <Link href="/cliente/tarjetas">
+                                            Mis Tarjetas
+                                        </Link>
+                                    </Button>
+                                    <Button asChild className="w-full" variant="outline">
+                                        <Link href="/cliente/movimientos">
+                                            Ver Movimientos
+                                        </Link>
+                                    </Button>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* Información del cliente */}
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Información Personal</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="grid gap-4">
+                                    <div>
+                                        <p className="text-sm font-medium">Nombre</p>
+                                        <p>{cliente.nombre} {cliente.apellido_paterno} {cliente.apellido_materno}</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-sm font-medium">CI</p>
+                                        <p>{cliente.ci}</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-sm font-medium">Email</p>
+                                        <p>{cliente.email || 'No especificado'}</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-sm font-medium">Celular</p>
+                                        <p>{cliente.celular || 'No especificado'}</p>
+                                    </div>
+                                </div>
+                            </CardContent>
+                        </Card>
+
+                        {/* Mis Últimos Movimientos */}
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Mis Últimos Movimientos</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div className="space-y-2">
+                                    {cliente.tarjetas_gift?.flatMap(tarjeta =>
+                                        tarjeta.movimientos?.slice(0, 3) || [] // 3 por tarjeta
+                                    ).sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
+                                    .slice(0, 10) // últimos 10 total
+                                    .map((movimiento: any) => (
+                                        <div key={movimiento.id} className="grid grid-cols-5 gap-2 text-sm border-b pb-1">
+                                            <span>{new Date(movimiento.created_at).toLocaleDateString('es-ES')}</span>
+                                            <span className="truncate">{movimiento.tarjeta_gift_card?.codigo_unico}</span>
+                                            <span className={`text-center ${movimiento.tipo_movimiento === 'carga' ? 'text-green-600' : 'text-red-600'}`}>
+                                                {movimiento.tipo_movimiento === 'carga' ? '+' : '-'}{formatCurrency(parseFloat(movimiento.monto))}
+                                            </span>
+                                            <span className="truncate">{movimiento.descripcion || '-'}</span>
+                                            <span>{formatCurrency(parseFloat(movimiento.saldo_nuevo))}</span>
+                                        </div>
+                                    ))}
+                                    {(!cliente.tarjetas_gift || cliente.tarjetas_gift.flatMap(t => t.movimientos || []).length === 0) && (
+                                        <p className="text-muted-foreground text-center py-4">No hay movimientos registrados.</p>
+                                    )}
+                                </div>
+                                <div className="grid grid-cols-5 gap-2 text-xs font-medium mt-2 pt-2 border-t">
+                                    <span>Fecha</span>
+                                    <span>Tarjeta</span>
+                                    <span className="text-center">Monto</span>
+                                    <span>Descripción</span>
+                                    <span>Saldo Final</span>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </div>
+
+        
+                </div>
+            </AppLayout>
+        );
+    }
+
+    // Dashboard para staff (admin/encargado)
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Dashboard" />
@@ -254,6 +366,7 @@ export default function Index() {
                         </CardContent>
                     </Card>
                 </div>
+
             </div>
         </AppLayout>
     );

@@ -18,10 +18,18 @@ class TarjetaGiftCardController extends Controller
      */
     public function index(Request $request): Response
     {
+        $this->authorize('viewAny', TarjetaGiftCard::class);
+
         $search = $request->input('search');
         $perPage = $request->input('per_page', 15);
 
         $query = TarjetaGiftCard::with(['cliente:id,nombre,apellido_paterno,email', 'user:id,name']);
+
+        // Filtrar por rol del usuario
+        $user = auth()->user();
+        if ($user->hasRole('cliente') && $user->cliente) {
+            $query->where('cliente_id', $user->cliente->id);
+        }
 
         if ($search) {
             $query->where(function ($q) use ($search) {
@@ -84,6 +92,8 @@ class TarjetaGiftCardController extends Controller
      */
     public function show(TarjetaGiftCard $tarjetaGiftCard): Response
     {
+        $this->authorize('view', $tarjetaGiftCard);
+
         $tarjetaGiftCard->load(['cliente', 'user', 'movimientos' => function($q) {
             $q->with('user:id,name')->latest();
         }]);
@@ -102,6 +112,8 @@ class TarjetaGiftCardController extends Controller
      */
     public function associateClient(Request $request, TarjetaGiftCard $tarjetaGiftCard)
     {
+        $this->authorize('associateClient', $tarjetaGiftCard);
+
         $request->validate(['cliente_id' => 'required|exists:clientes,id']);
 
         try {
@@ -118,6 +130,8 @@ class TarjetaGiftCardController extends Controller
      */
     public function dissociateClient(TarjetaGiftCard $tarjetaGiftCard)
     {
+        $this->authorize('dissociateClient', $tarjetaGiftCard);
+
         GiftCardService::dissociateClient($tarjetaGiftCard);
         return back()->with('success', 'Cliente desasociado.');
     }
@@ -127,6 +141,8 @@ class TarjetaGiftCardController extends Controller
      */
     public function edit(TarjetaGiftCard $tarjetaGiftCard): Response
     {
+        $this->authorize('update', $tarjetaGiftCard);
+
         $clientes = Cliente::where('activo', true)->get(['id', 'nombre', 'apellido_paterno']);
         return Inertia::render('GiftCards/Edit', [
             'tarjeta' => $tarjetaGiftCard->load(['cliente', 'user']),
@@ -222,11 +238,25 @@ class TarjetaGiftCardController extends Controller
     }
 
     /**
-     * Mostrar dashboard con estadísticas.
+     * Mostrar dashboard con estadísticas o información del cliente.
      */
     public function dashboard(): Response
     {
-        // Estadísticas generales
+        $user = auth()->user();
+
+        if ($user->hasRole('cliente') && $user->cliente) {
+            // Dashboard para cliente: mostrar su información y tarjetas
+            $cliente = $user->cliente->load(['tarjetasGift' => function($q) {
+                $q->with('movimientos')->latest();
+            }]);
+
+            return Inertia::render('Dashboard/Index', [
+                'cliente' => $cliente,
+                'isCliente' => true,
+            ]);
+        }
+
+        // Dashboard para admin/encargado: estadísticas generales
         $totalTarjetas = \App\Models\TarjetaGiftCard::count();
         $tarjetasActivas = \App\Models\TarjetaGiftCard::where('estado', 'activa')->count();
         $tarjetasInactivas = \App\Models\TarjetaGiftCard::where('estado', 'inactiva')->count();
@@ -293,6 +323,7 @@ class TarjetaGiftCardController extends Controller
             'ingresos_por_dia' => $ingresosPorDia,
             'top_clientes' => $topClientes,
             'movimientos_por_tipo' => $movimientosPorTipo,
+            'isCliente' => false,
         ]);
     }
 
@@ -301,6 +332,8 @@ class TarjetaGiftCardController extends Controller
      */
     public function movements(Request $request): Response
     {
+        $user = auth()->user();
+
         $search = $request->input('search');
         $perPage = $request->input('per_page', 15);
         $tarjetaId = $request->input('tarjeta_id');
@@ -310,6 +343,13 @@ class TarjetaGiftCardController extends Controller
 
         $query = \App\Models\Movimiento::with(['tarjetaGiftCard:id,codigo_unico', 'user:id,name'])
             ->latest();
+
+        // Filtrar por rol del usuario
+        if ($user->hasRole('cliente') && $user->cliente) {
+            $query->whereHas('tarjetaGiftCard', function($q) use ($user) {
+                $q->where('cliente_id', $user->cliente->id);
+            });
+        }
 
         // Filtrar por tarjeta específica si se proporciona
         if ($tarjetaId) {
@@ -339,8 +379,12 @@ class TarjetaGiftCardController extends Controller
 
         $movimientos = $query->paginate($perPage)->withQueryString();
 
-        // Obtener todas las tarjetas para el selector
-        $tarjetas = \App\Models\TarjetaGiftCard::select('id', 'codigo_unico')->get();
+        // Obtener tarjetas filtradas para el selector
+        $tarjetasQuery = \App\Models\TarjetaGiftCard::select('id', 'codigo_unico');
+        if ($user->hasRole('cliente') && $user->cliente) {
+            $tarjetasQuery->where('cliente_id', $user->cliente->id);
+        }
+        $tarjetas = $tarjetasQuery->get();
 
         return Inertia::render('Movements/Index', [
             'movimientos' => $movimientos,

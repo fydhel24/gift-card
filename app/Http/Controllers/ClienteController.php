@@ -85,6 +85,8 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente): Response
     {
+        $this->authorize('view', $cliente);
+
         $cliente->load(['user', 'tarjetasGift' => function($q) {
             $q->with('user:id,name')->latest();
         }]);
@@ -99,6 +101,8 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente): Response
     {
+        $this->authorize('update', $cliente);
+
         return Inertia::render('Clientes/Edit', [
             'cliente' => $cliente->load('user'),
         ]);
@@ -109,6 +113,8 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
+        $this->authorize('update', $cliente);
+
         $validated = $request->validate([
             'nombre' => ['required', 'string', 'max:255'],
             'apellido_paterno' => ['required', 'string', 'max:255'],
@@ -132,7 +138,21 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
+        $this->authorize('delete', $cliente);
+
         $cliente->delete();
         return to_route('clientes.index')->with('success', 'Cliente eliminado exitosamente.');
+    }
+
+    /**
+     * Redirige al perfil del cliente actual.
+     */
+    public function miPerfil()
+    {
+        $cliente = auth()->user()->cliente()->first();
+        if (!$cliente) {
+            abort(404);
+        }
+        return redirect()->route('clientes.show', $cliente);
     }
 }
