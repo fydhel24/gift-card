@@ -335,13 +335,13 @@ class TarjetaGiftCardController extends Controller
         $user = auth()->user();
 
         $search = $request->input('search');
-        $perPage = $request->input('per_page', 15);
+        $perPage = $request->input('per_page', 10);
         $tarjetaId = $request->input('tarjeta_id');
         $fechaDesde = $request->input('fecha_desde');
         $fechaHasta = $request->input('fecha_hasta');
         $tipoMovimiento = $request->input('tipo_movimiento');
 
-        $query = \App\Models\Movimiento::with(['tarjetaGiftCard:id,codigo_unico', 'user:id,name'])
+        $query = \App\Models\Movimiento::with(['tarjetaGiftCard:id,codigo_unico,cliente_id', 'tarjetaGiftCard.cliente:id,nombre,apellido_paterno,ci', 'user:id,name'])
             ->latest();
 
         // Filtrar por rol del usuario
@@ -373,7 +373,9 @@ class TarjetaGiftCardController extends Controller
             $query->where(function ($q) use ($search) {
                 $q->whereHas('tarjetaGiftCard', fn($tq) => $tq->where('codigo_unico', 'like', "%{$search}%"))
                   ->orWhere('tipo_movimiento', 'like', "%{$search}%")
-                  ->orWhere('descripcion', 'like', "%{$search}%");
+                  ->orWhere('descripcion', 'like', "%{$search}%")
+                  ->orWhereHas('user', fn($uq) => $uq->where('name', 'like', "%{$search}%"))
+                  ->orWhereHas('tarjetaGiftCard.cliente', fn($cq) => $cq->where('ci', 'like', "%{$search}%"));
             });
         }
 

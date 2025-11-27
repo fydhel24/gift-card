@@ -10,6 +10,7 @@ import { Link, router } from '@inertiajs/react';
 import { useState } from 'react';
 import { Edit, UserMinus, UserPlus } from 'lucide-react';
 import { QRDialog } from './QRDialog';
+import { CanEditGiftCards, RoleGuard } from '@/components/RoleGuard';
 
 interface ShowGiftCardProps {
     tarjeta: GiftCard & { movimientos?: any[] };
@@ -92,14 +93,16 @@ export function ShowGiftCard({ tarjeta, clientesDisponibles }: ShowGiftCardProps
                         <div className="space-y-2">
                             <p><strong>Nombre:</strong> {tarjeta.cliente.nombre} {tarjeta.cliente.apellido_paterno}</p>
                             <p><strong>Email:</strong> {tarjeta.cliente.email}</p>
-                            <Button
-                                variant="outline"
-                                onClick={handleDissociate}
-                                disabled={loading}
-                            >
-                                <UserMinus className="mr-2 h-4 w-4" />
-                                Desasociar Cliente
-                            </Button>
+                            <RoleGuard permissions={['gestionar clientes']}>
+                                <Button
+                                    variant="outline"
+                                    onClick={handleDissociate}
+                                    disabled={loading}
+                                >
+                                    <UserMinus className="mr-2 h-4 w-4" />
+                                    Desasociar Cliente
+                                </Button>
+                            </RoleGuard>
                         </div>
                     ) : (
                         <div className="space-y-2">
@@ -117,13 +120,15 @@ export function ShowGiftCard({ tarjeta, clientesDisponibles }: ShowGiftCardProps
                                         ))}
                                     </SelectContent>
                                 </Select>
-                                <Button
-                                    onClick={handleAssociate}
-                                    disabled={!selectedCliente || loading}
-                                >
-                                    <UserPlus className="mr-2 h-4 w-4" />
-                                    Asociar Cliente
-                                </Button>
+                                <RoleGuard permissions={['gestionar clientes']}>
+                                    <Button
+                                        onClick={handleAssociate}
+                                        disabled={!selectedCliente || loading}
+                                    >
+                                        <UserPlus className="mr-2 h-4 w-4" />
+                                        Asociar Cliente
+                                    </Button>
+                                </RoleGuard>
                             </div>
                         </div>
                     )}
@@ -162,12 +167,14 @@ export function ShowGiftCard({ tarjeta, clientesDisponibles }: ShowGiftCardProps
             <div className="flex justify-end space-x-2">
                 <QRDialog codigoUnico={tarjeta.codigo_unico} />
 
-                <Button asChild>
-                    <Link href={edit(tarjeta).url}>
-                        <Edit className="mr-2 h-4 w-4" />
-                        Editar Tarjeta
-                    </Link>
-                </Button>
+                <CanEditGiftCards>
+                    <Button asChild>
+                        <Link href={edit(tarjeta).url}>
+                            <Edit className="mr-2 h-4 w-4" />
+                            Editar Tarjeta
+                        </Link>
+                    </Button>
+                </CanEditGiftCards>
             </div>
         </div>
     );

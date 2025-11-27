@@ -4,7 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { edit as clientesEdit } from '@/routes/clientes';
 import { type Cliente } from '@/types/giftCard';
 import { Link } from '@inertiajs/react';
-import { Edit, User } from 'lucide-react';
+import { Edit } from 'lucide-react';
 
 interface ShowClienteProps {
     cliente: Cliente & { tarjetasGift?: any[] };

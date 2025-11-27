@@ -18,6 +18,9 @@ class ClienteController extends Controller
     {
         $search = $request->input('search');
         $perPage = $request->input('per_page', 15);
+        $estado = $request->input('estado');
+        $fechaDesde = $request->input('fecha_desde');
+        $fechaHasta = $request->input('fecha_hasta');
 
         $query = Cliente::with('user:id,name');
 
@@ -32,11 +35,24 @@ class ClienteController extends Controller
             });
         }
 
+        // Filtro por estado
+        if ($estado !== null) {
+            $query->where('activo', $estado === 'activo');
+        }
+
+        // Filtros de fecha
+        if ($fechaDesde) {
+            $query->whereDate('created_at', '>=', $fechaDesde);
+        }
+        if ($fechaHasta) {
+            $query->whereDate('created_at', '<=', $fechaHasta);
+        }
+
         $clientes = $query->latest()->paginate($perPage)->withQueryString();
 
         return Inertia::render('Clientes/Index', [
             'clientes' => $clientes,
-            'filters' => $request->only(['search', 'per_page']),
+            'filters' => $request->only(['search', 'per_page', 'estado', 'fecha_desde', 'fecha_hasta']),
         ]);
     }
 
@@ -139,6 +155,18 @@ class ClienteController extends Controller
     {
         $this->authorize('update', $cliente);
 
+        // Si solo se envía 'activo', es una actualización parcial del estado
+        if ($request->has('activo') && count($request->all()) === 2) { // _method + activo
+            $validated = $request->validate([
+                'activo' => ['boolean'],
+            ]);
+
+            $cliente->update($validated);
+
+            return back()->with('success', 'Estado del cliente actualizado.');
+        }
+
+        // Validación completa para edición normal
         $validated = $request->validate([
             'nombre' => ['required', 'string', 'max:255'],
             'apellido_paterno' => ['required', 'string', 'max:255'],

@@ -66,7 +66,7 @@ export default function Tarjetas() {
                                 </div>
 
                                 <Button asChild variant="outline">
-                                    <Link href={`/cliente/movimientos?tarjeta_id=${tarjeta.id}`}>
+                                    <Link href={`/cliente/movimientos?cliente_id=${cliente.id}&tarjeta_id=${tarjeta.id}`}>
                                         Ver Movimientos
                                     </Link>
                                 </Button>

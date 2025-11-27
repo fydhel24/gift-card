@@ -59,7 +59,7 @@ const mainNavItems: NavItem[] = [
         title: 'Tarjetas de Regalo',
         href: giftCardsIndex().url,
         icon: CreditCard,
-        roles: ['admin', 'encargado'], // Solo staff gestiona tarjetas
+        roles: ['admin'], // Solo admin gestiona tarjetas
     },
     {
         title: 'Transacciones',
@@ -153,7 +153,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                                     <div className="flex h-full flex-col justify-between text-sm">
                                         <div className="flex flex-col space-y-4">
                                             {mainNavItems.map((item) => (
-                                                <RoleGuard key={item.title} roles={item.roles} requireAll={false}>
+                                                <RoleGuard key={item.title} roles={item.roles} permissions={item.permissions} requireAll={false}>
                                                     <Link
                                                         href={item.href}
                                                         className="flex items-center space-x-2 font-medium"
@@ -208,7 +208,7 @@ export function AppHeader({ breadcrumbs = [] }: AppHeaderProps) {
                         <NavigationMenu className="flex h-full items-stretch">
                             <NavigationMenuList className="flex h-full items-stretch space-x-2">
                                 {mainNavItems.map((item, index) => (
-                                    <RoleGuard key={index} roles={item.roles} requireAll={false}>
+                                    <RoleGuard key={index} roles={item.roles} permissions={item.permissions} requireAll={false}>
                                         <NavigationMenuItem className="relative flex h-full items-center">
                                             <Link
                                                 href={item.href}

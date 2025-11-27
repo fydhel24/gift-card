@@ -27,8 +27,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/clientes/{cliente}', [ClienteController::class, 'show'])->name('clientes.show');
     Route::get('/clientes/mi-perfil', [ClienteController::class, 'miPerfil'])->name('clientes.mi-perfil');
 
-    // Dashboard específico para clientes
-    Route::middleware(['role:cliente'])->group(function () {
+    // Dashboard específico para clientes y admin/encargado para ver datos de clientes
+    Route::middleware(['role:admin|encargado|cliente'])->group(function () {
         Route::get('/cliente/tarjetas', [App\Http\Controllers\ClienteDashboardController::class, 'tarjetas'])->name('cliente.tarjetas');
         Route::get('/cliente/movimientos', [App\Http\Controllers\ClienteDashboardController::class, 'movimientos'])->name('cliente.movimientos');
     });
@@ -77,10 +77,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/transactions', [TarjetaGiftCardController::class, 'transactions'])->name('transactions.index');
     Route::post('/transactions', [TarjetaGiftCardController::class, 'processTransaction'])->name('transactions.process');
 
-    // Movimientos/Historial - Solo staff
-    Route::middleware(['role:admin,encargado'])->group(function () {
-        Route::get('/movements', [TarjetaGiftCardController::class, 'movements'])->name('movements.index');
-    });
+    // Movimientos/Historial - Checks in controller
+    Route::get('/movements', [TarjetaGiftCardController::class, 'movements'])->name('movements.index');
 
     // Usuarios - Solo admin
     Route::middleware(['role:admin'])->group(function () {

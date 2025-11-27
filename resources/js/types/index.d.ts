@@ -21,6 +21,7 @@ export interface NavItem {
     icon?: LucideIcon | null;
     isActive?: boolean;
     roles?: string[]; // Roles que pueden ver este elemento de navegación
+    permissions?: string[]; // Permisos que pueden ver este elemento de navegación
 }
 
 export interface SharedData {

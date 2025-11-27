@@ -9,17 +9,25 @@ use Inertia\Response;
 class ClienteDashboardController extends Controller
 {
     /**
-     * Muestra las tarjetas del cliente actual.
+     * Muestra las tarjetas del cliente (actual o especificado).
      */
-    public function tarjetas(): Response
+    public function tarjetas(Request $request): Response
     {
         $user = auth()->user();
-        $cliente = $user->cliente()->with(['tarjetasGift' => function($q) {
-            $q->latest();
-        }])->first();
+        $clienteId = $request->input('cliente_id');
 
-        if (!$cliente) {
-            abort(404);
+        if ($clienteId && ($user->hasRole('admin') || $user->hasRole('encargado'))) {
+            $cliente = \App\Models\Cliente::with(['tarjetasGift' => function($q) {
+                $q->latest();
+            }])->findOrFail($clienteId);
+        } else {
+            $cliente = $user->cliente()->with(['tarjetasGift' => function($q) {
+                $q->latest();
+            }])->first();
+
+            if (!$cliente) {
+                abort(404);
+            }
         }
 
         return Inertia::render('Cliente/Tarjetas', [
@@ -28,15 +36,21 @@ class ClienteDashboardController extends Controller
     }
 
     /**
-     * Muestra los movimientos del cliente actual.
+     * Muestra los movimientos del cliente (actual o especificado).
      */
     public function movimientos(Request $request): Response
     {
         $user = auth()->user();
-        $cliente = $user->cliente()->first();
+        $clienteId = $request->input('cliente_id');
 
-        if (!$cliente) {
-            abort(404);
+        if ($clienteId && ($user->hasRole('admin') || $user->hasRole('encargado'))) {
+            $cliente = \App\Models\Cliente::with(['tarjetasGift'])->findOrFail($clienteId);
+        } else {
+            $cliente = $user->cliente()->with(['tarjetasGift'])->first();
+
+            if (!$cliente) {
+                abort(404);
+            }
         }
 
         $search = $request->input('search');
@@ -63,9 +77,15 @@ class ClienteDashboardController extends Controller
 
         $movimientos = $query->paginate($perPage)->withQueryString();
 
+        // Obtener tarjetas del cliente para el filtro
+        $tarjetas = \App\Models\TarjetaGiftCard::where('cliente_id', $cliente->id)
+            ->select('id', 'codigo_unico')
+            ->get();
+
         return Inertia::render('Cliente/Movimientos', [
             'cliente' => $cliente,
             'movimientos' => $movimientos,
+            'tarjetas' => $tarjetas,
             'filters' => $request->only(['search', 'per_page', 'tarjeta_id']),
         ]);
     }
