@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { RoleGuard, CanEditGiftCards } from '@/components/RoleGuard';
 import { useEffect, useState } from 'react';
 import { Edit, Eye, Trash2, EyeOff, ChevronDown, ChevronUp } from 'lucide-react';
 import { QRDialog } from './QRDialog';
@@ -129,22 +130,26 @@ export function DataTable({ data, onSearch, initialSearch = '' }: DataTableProps
                            <Eye className="h-4 w-4" />
                          </Link>
                        </Button>
-                       <Button asChild size="sm" variant="outline">
-                         <Link href={edit(tarjeta).url}>
-                           <Edit className="h-4 w-4" />
-                         </Link>
-                       </Button>
-                       <Button
-                         size="sm"
-                         variant="outline"
-                         onClick={() => {
-                           if (confirm('¿Estás seguro de eliminar esta tarjeta?')) {
-                             router.delete(destroy(tarjeta).url);
-                           }
-                         }}
-                       >
-                         <Trash2 className="h-4 w-4" />
-                       </Button>
+                       <CanEditGiftCards>
+                         <Button asChild size="sm" variant="outline">
+                           <Link href={edit(tarjeta).url}>
+                             <Edit className="h-4 w-4" />
+                           </Link>
+                         </Button>
+                       </CanEditGiftCards>
+                       <RoleGuard roles={['admin']}>
+                         <Button
+                           size="sm"
+                           variant="outline"
+                           onClick={() => {
+                             if (confirm('¿Estás seguro de eliminar esta tarjeta?')) {
+                               router.delete(destroy(tarjeta).url);
+                             }
+                           }}
+                         >
+                           <Trash2 className="h-4 w-4" />
+                         </Button>
+                       </RoleGuard>
                      </div>
                    </TableCell>
                  </TableRow>
@@ -184,6 +189,28 @@ export function DataTable({ data, onSearch, initialSearch = '' }: DataTableProps
            })}
          </TableBody>
       </Table>
+
+      {/* Paginación */}
+      {data.meta && data.meta.last_page > 1 && (
+        <div className="flex items-center justify-between mt-4">
+          <div className="text-sm text-muted-foreground">
+            Mostrando {data.data.length} de {data.meta.total} tarjetas
+          </div>
+          <div className="flex space-x-1">
+            {data.links && data.links.map((link: any, index: number) => (
+              <Button
+                key={index}
+                variant={link.active ? 'default' : 'outline'}
+                size="sm"
+                disabled={!link.url}
+                onClick={() => link.url && router.get(link.url)}
+              >
+                {link.label.replace('&laquo;', '«').replace('&raquo;', '»')}
+              </Button>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
-  );
+ );
 }

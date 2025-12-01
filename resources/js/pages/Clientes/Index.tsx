@@ -32,7 +32,7 @@ export default function Index() {
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
                 <div className="flex items-center justify-between">
                     <div>
-                        <h1 className="text-2xl font-bold">Gestión de Clientes</h1>
+                        <h1 className="text-3xl font-bold">Gestión de Clientes</h1>
                         <p className="text-muted-foreground">
                             Administre la información de sus clientes registrados en el sistema.
                         </p>
@@ -49,6 +49,7 @@ export default function Index() {
                     data={clientes}
                     onSearch={handleSearch}
                     initialSearch={filters.search || ''}
+                    filters={filters}
                 />
             </div>
         </AppLayout>

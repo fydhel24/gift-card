@@ -40,6 +40,21 @@ class FortifyServiceProvider extends ServiceProvider
     {
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::createUsersUsing(CreateNewUser::class);
+
+        // Verificar que el cliente esté activo al autenticar
+        Fortify::authenticateUsing(function (Request $request) {
+            $user = \App\Models\User::where('email', $request->email)->first();
+
+            if ($user && \Illuminate\Support\Facades\Hash::check($request->password, $user->password)) {
+                // Si el usuario tiene un cliente asociado, verificar que esté activo
+                if ($user->cliente && !$user->cliente->activo) {
+                    return null; // No autenticar
+                }
+                return $user;
+            }
+
+            return null;
+        });
     }
 
     /**

@@ -20,6 +20,8 @@ export interface NavItem {
     href: NonNullable<InertiaLinkProps['href']>;
     icon?: LucideIcon | null;
     isActive?: boolean;
+    roles?: string[]; // Roles que pueden ver este elemento de navegación
+    permissions?: string[]; // Permisos que pueden ver este elemento de navegación
 }
 
 export interface SharedData {
@@ -39,5 +41,7 @@ export interface User {
     two_factor_enabled?: boolean;
     created_at: string;
     updated_at: string;
+    roles?: string[]; // Roles del usuario
+    permissions?: string[]; // Permisos del usuario
     [key: string]: unknown; // This allows for additional properties...
 }
