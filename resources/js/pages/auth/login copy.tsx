@@ -31,6 +31,7 @@ function GlowingModel() {
             speed={2}
             rotationIntensity={0.5}
             floatIntensity={0.8}
+            stagger={0}
         >
             <Model ref={ref} />
         </Float>
@@ -58,6 +59,20 @@ export default function Login({
                     rel="stylesheet"
                 />
             </Head>
+
+            <style>{`
+                body {
+                    font-family: 'Instrument Sans', sans-serif;
+                }
+                .login-gradient-bg {
+                    background: linear-gradient(135deg, #f8f4ff 0%, #fdf2f8 50%, #ffffff 100%);
+                }
+                @media (prefers-color-scheme: dark) {
+                    .login-gradient-bg {
+                        background: linear-gradient(135deg, #1a1523 0%, #1f1320 50%, #18181b 100%);
+                    }
+                }
+            `}</style>
 
             <div className="login-gradient-bg flex min-h-screen items-center justify-center p-4 sm:p-6">
                 <div className="grid w-full max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">

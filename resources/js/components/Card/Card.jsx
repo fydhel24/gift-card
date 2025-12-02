@@ -14,7 +14,7 @@ export function Model(props) {
     return (
         <group {...props} dispose={null}>
             <group
-                position={[0.033, 0.851, -4.527]}
+                position={[0.033, 0.851, 0]}
                 rotation={[0, 0, -Math.PI / 2]}
                 scale={[3.399, 1.304, 5.474]}
             >
@@ -28,7 +28,7 @@ export function Model(props) {
                 />
             </group>
             <group
-                position={[-0.106, 0.837, -4.543]}
+                position={[-0.106, 0.837, 0]}
                 rotation={[0, 0, -Math.PI / 2]}
                 scale={[3.394, 1, 5.471]}
             >
@@ -52,14 +52,14 @@ export function Model(props) {
             <mesh
                 geometry={nodes.Object_7.geometry}
                 material={materials.numbers}
-                position={[-0.028, 0.851, -4.527]}
+                position={[-0.028, 0.851, 0]}
                 rotation={[0, 0, -Math.PI / 2]}
                 scale={[3.399, 0.594, 5.474]}
             />
             <mesh
                 geometry={nodes.Object_14.geometry}
                 material={materials.material}
-                position={[-0.106, 0.837, -4.543]}
+                position={[-0.106, 0.837, 0]}
                 rotation={[0, 0, -Math.PI / 2]}
                 scale={[3.394, 1, 5.471]}
             />
