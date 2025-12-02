@@ -1,19 +1,29 @@
 import { Model } from '@/components/Card/Card';
+import { Particles } from '@/components/ui/particles'; // ajusta la ruta si es necesario
 import { dashboard, login } from '@/routes';
 import { type SharedData } from '@/types';
 import { Head, Link, usePage } from '@inertiajs/react';
-import { OrbitControls } from '@react-three/drei';
+import { Environment, Float, OrbitControls } from '@react-three/drei';
+import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Suspense, useRef } from 'react';
 
-function AnimatedModel() {
+// === Particles ===
+
+// === Animated & Glowing Model ===
+function GlowingModel() {
     const ref = useRef<any>(null);
     useFrame((state, delta) => {
         if (ref.current) {
-            ref.current.rotation.y += delta * 0.5;
+            ref.current.rotation.y += delta * 0.3;
         }
     });
-    return <Model ref={ref} />;
+
+    return (
+        <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8}>
+            <Model ref={ref} />
+        </Float>
+    );
 }
 
 export default function Welcome({
@@ -33,26 +43,34 @@ export default function Welcome({
                 />
             </Head>
 
-            {/* Fondo degradado lila-rosado → blanco */}
+            {/* Fondo oscuro con partículas */}
             <div
-                className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-white p-6 text-gray-900 dark:bg-gradient-to-br dark:from-gray-900 dark:via-purple-950 dark:to-gray-900 dark:text-gray-100"
+                className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-slate-900 p-6 text-gray-100 dark:bg-slate-950"
                 style={{
                     fontFamily: "'Instrument Sans', system-ui, sans-serif",
                 }}
             >
+                {/* Partículas como fondo */}
+                <Particles
+                    className="absolute inset-0"
+                    quantity={100}
+                    ease={80}
+                    color="#ffffff"
+                    refresh
+                />
                 <header className="mb-8 w-full max-w-6xl self-end lg:mb-12">
                     <nav className="flex justify-end">
                         {auth.user ? (
                             <Link
                                 href={dashboard()}
-                                className="rounded-full bg-white px-5 py-2 text-sm font-medium text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all hover:bg-gray-50 hover:ring-gray-300 dark:bg-gray-800 dark:text-gray-200 dark:ring-gray-700 dark:hover:bg-gray-700"
+                                className="rounded-full bg-gray-800 px-5 py-2 text-sm font-medium text-gray-200 shadow-sm ring-1 ring-gray-700 transition-all hover:bg-gray-700 hover:ring-gray-600"
                             >
                                 Dashboard
                             </Link>
                         ) : (
                             <Link
                                 href={login()}
-                                className="rounded-full bg-white px-5 py-2 text-sm font-medium text-gray-800 shadow-sm ring-1 ring-gray-200 transition-all hover:bg-gray-50 hover:ring-gray-300 dark:bg-gray-800 dark:text-gray-200 dark:ring-gray-700 dark:hover:bg-gray-700"
+                                className="rounded-full bg-gray-800 px-5 py-2 text-sm font-medium text-gray-200 shadow-sm ring-1 ring-gray-700 transition-all hover:bg-gray-700 hover:ring-gray-600"
                             >
                                 Iniciar Sesión
                             </Link>
@@ -64,15 +82,15 @@ export default function Welcome({
                     <div className="grid w-full max-w-6xl grid-cols-1 gap-12 lg:grid-cols-2">
                         {/* === TEXTO === */}
                         <div className="flex flex-col gap-6">
-                            <h1 className="text-4xl font-bold tracking-tight text-gray-900 lg:text-5xl dark:text-white">
+                            <h1 className="text-4xl font-bold tracking-tight text-white lg:text-5xl">
                                 Bienvenidos al{' '}
-                                <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+                                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                                     Gift Card
                                 </span>{' '}
                                 de Importadora Miranda
                             </h1>
 
-                            <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+                            <p className="text-lg leading-relaxed text-gray-300">
                                 Descubre una forma más rápida, segura y moderna
                                 de realizar tus compras. Nuestras tarjetas
                                 digitales están diseñadas para ofrecerte la
@@ -89,7 +107,7 @@ export default function Welcome({
 
                                 <Link
                                     href="/"
-                                    className="rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 shadow-sm transition-all hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+                                    className="rounded-lg border border-gray-600 bg-gray-800 px-6 py-3 text-sm font-semibold text-gray-200 shadow-sm transition-all hover:bg-gray-700"
                                 >
                                     Más Información
                                 </Link>
@@ -98,30 +116,56 @@ export default function Welcome({
 
                         {/* === COLUMNA DERECHA: MODELO 3D === */}
                         <div className="flex items-center justify-center">
-                            <div className="h-[380px] w-full max-w-[420px] overflow-hidden sm:h-[420px] lg:h-[500px]">
+                            <div className="h-[420px] w-full max-w-[420px] overflow-hidden">
                                 <Canvas
-                                    className="h-full w-full !border-none bg-transparent !outline-none"
-                                    camera={{ position: [18, 23, 18], fov: 25 }}
+                                    className="h-full w-full !border-none !outline-none"
+                                    camera={{ position: [18, 23, 18], fov: 20 }}
+                                    gl={{
+                                        antialias: true,
+                                        alpha: true,
+                                        preserveDrawingBuffer: true,
+                                    }}
                                 >
                                     <Suspense fallback={null}>
-                                        <ambientLight intensity={1.2} />
+                                        <ambientLight intensity={0.6} />
+                                        <pointLight
+                                            position={[10, 10, 10]}
+                                            intensity={1.2}
+                                            color="#ec4899"
+                                        />
+                                        <pointLight
+                                            position={[-10, -5, 5]}
+                                            intensity={0.8}
+                                            color="#8b5cf6"
+                                        />
                                         <directionalLight
-                                            position={[10, 10, 5]}
+                                            position={[5, 5, 5]}
                                             intensity={1}
                                         />
-                                        <AnimatedModel />
+                                        <Environment preset="city" />
+                                        <GlowingModel />
                                         <OrbitControls
                                             enableZoom={false}
                                             enablePan={false}
+                                            autoRotate
+                                            autoRotateSpeed={0.8}
                                         />
                                     </Suspense>
+
+                                    <EffectComposer renderPriority={1}>
+                                        <Bloom
+                                            luminanceThreshold={0.2}
+                                            luminanceSmoothing={0.9}
+                                            intensity={0.6}
+                                        />
+                                    </EffectComposer>
                                 </Canvas>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <footer className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400">
+                <footer className="mt-12 text-center text-sm text-gray-400">
                     © {new Date().getFullYear()} Importadora Miranda. Todos los
                     derechos reservados.
                 </footer>

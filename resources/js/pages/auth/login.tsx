@@ -1,13 +1,10 @@
 import InputError from '@/components/input-error';
-import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
-import { register } from '@/routes';
 import { store } from '@/routes/login';
-import { request } from '@/routes/password';
 import { Form, Head } from '@inertiajs/react';
 
 // === 3D Imports ===
@@ -17,21 +14,20 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { Bloom, EffectComposer } from '@react-three/postprocessing';
 import { Suspense, useRef } from 'react';
 
+// === Particles (shadcn) ===
+import { Particles } from '@/components/ui/particles'; // ajusta la ruta si es necesario
+
 // === Animated & Glowing Model ===
 function GlowingModel() {
     const ref = useRef<any>(null);
     useFrame((state, delta) => {
         if (ref.current) {
-            ref.current.rotation.y += delta * 0.3; // rotación más suave
+            ref.current.rotation.y += delta * 0.3;
         }
     });
 
     return (
-        <Float
-            speed={2}
-            rotationIntensity={0.5}
-            floatIntensity={0.8}
-        >
+        <Float speed={2} rotationIntensity={0.5} floatIntensity={0.8}>
             <Model ref={ref} />
         </Float>
     );
@@ -59,7 +55,17 @@ export default function Login({
                 />
             </Head>
 
-            <div className="login-gradient-bg flex min-h-screen items-center justify-center p-4 sm:p-6">
+            {/* ✅ Contenedor relativo para el fondo de partículas */}
+            <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-slate-900 p-4 sm:p-6 dark:bg-slate-950">
+                {/* ✅ Partículas como fondo absoluto */}
+                <Particles
+                    className="absolute inset-0"
+                    quantity={100}
+                    ease={80}
+                    color="#ffffff"
+                    refresh
+                />
+
                 <div className="grid w-full max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
                     {/* === Formulario === */}
                     <div className="flex flex-col justify-center rounded-2xl bg-white/80 p-8 shadow-lg backdrop-blur-sm sm:p-10 dark:bg-black/60 dark:shadow-none">
@@ -93,6 +99,7 @@ export default function Login({
                                                 tabIndex={1}
                                                 autoComplete="email"
                                                 placeholder="correo@ejemplo.com"
+                                                className="border-blue-500 focus:border-blue-500 focus:ring-blue-500"
                                             />
                                             <InputError
                                                 message={errors.email}
@@ -116,6 +123,7 @@ export default function Login({
                                                 tabIndex={2}
                                                 autoComplete="current-password"
                                                 placeholder="Contraseña"
+                                                className="border-blue-500 focus:border-blue-500 focus:ring-blue-500"
                                             />
                                             <InputError
                                                 message={errors.password}
@@ -126,6 +134,7 @@ export default function Login({
                                             <Checkbox
                                                 id="remember"
                                                 name="remember"
+                                                className="border-blue-500 focus:border-blue-500 focus:ring-blue-500"
                                                 tabIndex={3}
                                             />
                                             <Label
@@ -168,13 +177,11 @@ export default function Login({
                                 camera={{ position: [18, 23, 18], fov: 20 }}
                                 gl={{
                                     antialias: true,
-                                    alpha: true, // ✅ Fondo transparente
+                                    alpha: true,
                                     preserveDrawingBuffer: true,
                                 }}
                             >
-
                                 <Suspense fallback={null}>
-                                    {/* Luces mejoradas */}
                                     <ambientLight intensity={0.6} />
                                     <pointLight
                                         position={[10, 10, 10]}
@@ -190,14 +197,8 @@ export default function Login({
                                         position={[5, 5, 5]}
                                         intensity={1}
                                     />
-
-                                    {/* Entorno reflectante (solo afecta reflejos, no el fondo) */}
                                     <Environment preset="city" />
-
-                                    {/* Modelo animado */}
                                     <GlowingModel />
-
-                                    {/* Controles */}
                                     <OrbitControls
                                         enableZoom={false}
                                         enablePan={false}
@@ -206,7 +207,6 @@ export default function Login({
                                     />
                                 </Suspense>
 
-                                {/* Efecto de brillo (solo en los objetos, no afecta fondo) */}
                                 <EffectComposer renderPriority={1}>
                                     <Bloom
                                         luminanceThreshold={0.2}
