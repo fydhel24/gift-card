@@ -1,0 +1,302 @@
+Date : 2025-12-01 16:10:38
+Directory : d:\PROYECTOCALENDARIO\proyectogiftcard
+Total : 204 files,  31783 codes, 1465 comments, 1855 blanks, all 35103 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          6 |     18,282 |          0 |          6 |     18,288 |
+| TypeScript JSX     |        108 |      9,770 |         71 |        819 |     10,660 |
+| PHP                |         73 |      3,167 |      1,296 |        924 |      5,387 |
+| TypeScript         |          8 |        260 |          4 |         48 |        312 |
+| PostCSS            |          1 |        123 |          0 |         21 |        144 |
+| YAML               |          2 |         70 |          5 |         22 |         97 |
+| XML                |          3 |         54 |          0 |          3 |         57 |
+| JavaScript         |          1 |         34 |          1 |          2 |         37 |
+| JSON with Comments |          1 |         21 |         88 |          9 |        118 |
+| Ignore             |          1 |          2 |          0 |          1 |          3 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                   | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                      |        204 |     31,783 |      1,465 |      1,855 |     35,103 |
+| . (Files)                                                                                                              |         11 |     18,400 |         89 |         21 |     18,510 |
+| .github                                                                                                                |          2 |         70 |          5 |         22 |         97 |
+| .github\workflows                                                                                                      |          2 |         70 |          5 |         22 |         97 |
+| app                                                                                                                    |         25 |      1,241 |        316 |        301 |      1,858 |
+| app\Actions                                                                                                            |          3 |         57 |         15 |         16 |         88 |
+| app\Actions\Fortify                                                                                                    |          3 |         57 |         15 |         16 |         88 |
+| app\Http                                                                                                               |         13 |        813 |        177 |        193 |      1,183 |
+| app\Http\Controllers                                                                                                   |          8 |        703 |        135 |        163 |      1,001 |
+| app\Http\Controllers (Files)                                                                                           |          5 |        610 |        114 |        136 |        860 |
+| app\Http\Controllers\Settings                                                                                          |          3 |         93 |         21 |         27 |        141 |
+| app\Http\Middleware                                                                                                    |          3 |         70 |         29 |         19 |        118 |
+| app\Http\Requests                                                                                                      |          2 |         40 |         13 |         11 |         64 |
+| app\Http\Requests\Settings                                                                                             |          2 |         40 |         13 |         11 |         64 |
+| app\Models                                                                                                             |          4 |        138 |         18 |         28 |        184 |
+| app\Policies                                                                                                           |          2 |        120 |         65 |         33 |        218 |
+| app\Providers                                                                                                          |          2 |         89 |         26 |         24 |        139 |
+| app\Services                                                                                                           |          1 |         24 |         15 |          7 |         46 |
+| bootstrap                                                                                                              |          2 |         32 |          2 |          7 |         41 |
+| config                                                                                                                 |         13 |        594 |        807 |        281 |      1,682 |
+| database                                                                                                               |         13 |        694 |        120 |        121 |        935 |
+| database\factories                                                                                                     |          1 |         36 |         17 |          7 |         60 |
+| database\migrations                                                                                                    |          8 |        321 |         50 |         61 |        432 |
+| database\seeders                                                                                                       |          4 |        337 |         53 |         53 |        443 |
+| public                                                                                                                 |          3 |         29 |          4 |          9 |         42 |
+| resources                                                                                                              |        117 |     10,167 |         75 |        896 |     11,138 |
+| resources\css                                                                                                          |          1 |        123 |          0 |         21 |        144 |
+| resources\js                                                                                                           |        115 |     10,004 |         75 |        865 |     10,944 |
+| resources\js (Files)                                                                                                   |          2 |         49 |          1 |          9 |         59 |
+| resources\js\components                                                                                                |         66 |      6,074 |         42 |        510 |      6,626 |
+| resources\js\components (Files)                                                                                        |         25 |      1,505 |          9 |        128 |      1,642 |
+| resources\js\components\Clientes                                                                                       |          4 |        692 |          3 |         44 |        739 |
+| resources\js\components\GiftCards                                                                                      |          6 |        786 |          6 |         53 |        845 |
+| resources\js\components\Movements                                                                                      |          1 |        341 |          4 |         13 |        358 |
+| resources\js\components\Transactions                                                                                   |          1 |        254 |          5 |         18 |        277 |
+| resources\js\components\Users                                                                                          |          1 |        127 |          2 |          5 |        134 |
+| resources\js\components\ui                                                                                             |         28 |      2,369 |         13 |        249 |      2,631 |
+| resources\js\hooks                                                                                                     |          6 |        201 |          6 |         63 |        270 |
+| resources\js\layouts                                                                                                   |          8 |        291 |          1 |         28 |        320 |
+| resources\js\layouts (Files)                                                                                           |          2 |         29 |          0 |          5 |         34 |
+| resources\js\layouts\app                                                                                               |          2 |         36 |          0 |          4 |         40 |
+| resources\js\layouts\auth                                                                                              |          3 |        146 |          0 |         11 |        157 |
+| resources\js\layouts\settings                                                                                          |          1 |         80 |          1 |          8 |         89 |
+| resources\js\lib                                                                                                       |          1 |         15 |          0 |          4 |         19 |
+| resources\js\pages                                                                                                     |         29 |      3,272 |         23 |        237 |      3,532 |
+| resources\js\pages (Files)                                                                                             |          2 |        840 |          0 |          6 |        846 |
+| resources\js\pages\Cliente                                                                                             |          2 |        199 |          3 |         17 |        219 |
+| resources\js\pages\Clientes                                                                                            |          4 |        164 |          0 |         20 |        184 |
+| resources\js\pages\Dashboard                                                                                           |          1 |        340 |         11 |         22 |        373 |
+| resources\js\pages\Encargado                                                                                           |          1 |        289 |          5 |         19 |        313 |
+| resources\js\pages\GiftCards                                                                                           |          4 |        163 |          0 |         20 |        183 |
+| resources\js\pages\Movements                                                                                           |          1 |         72 |          1 |          7 |         80 |
+| resources\js\pages\Transactions                                                                                        |          1 |         32 |          0 |          4 |         36 |
+| resources\js\pages\Users                                                                                               |          2 |        178 |          1 |         20 |        199 |
+| resources\js\pages\auth                                                                                                |          7 |        576 |          2 |         52 |        630 |
+| resources\js\pages\settings                                                                                            |          4 |        419 |          0 |         50 |        469 |
+| resources\js\types                                                                                                     |          3 |        102 |          2 |         14 |        118 |
+| resources\views                                                                                                        |          1 |         40 |          0 |         10 |         50 |
+| routes                                                                                                                 |          3 |         89 |         15 |         29 |        133 |
+| tests                                                                                                                  |         15 |        467 |         32 |        168 |        667 |
+| tests (Files)                                                                                                          |          2 |         16 |         32 |         11 |         59 |
+| tests\Feature                                                                                                          |         12 |        447 |          0 |        156 |        603 |
+| tests\Feature (Files)                                                                                                  |          2 |         14 |          0 |          7 |         21 |
+| tests\Feature\Auth                                                                                                     |          7 |        269 |          0 |         99 |        368 |
+| tests\Feature\Settings                                                                                                 |          3 |        164 |          0 |         50 |        214 |
+| tests\Unit                                                                                                             |          1 |          4 |          0 |          1 |          5 |
++------------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                                               | language           | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| d:\PROYECTOCALENDARIO\proyectogiftcard\.github\workflows\lint.yml                                                      | YAML               |         31 |          5 |         10 |         46 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\.github\workflows\tests.yml                                                     | YAML               |         39 |          0 |         12 |         51 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\.prettierignore                                                                 | Ignore             |          2 |          0 |          1 |          3 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\.prettierrc                                                                     | JSON               |         25 |          0 |          1 |         26 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Actions\Fortify\CreateNewUser.php                                           | PHP                |         29 |          5 |          6 |         40 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Actions\Fortify\PasswordValidationRules.php                                 | PHP                |         10 |          5 |          4 |         19 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Actions\Fortify\ResetUserPassword.php                                       | PHP                |         18 |          5 |          6 |         29 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\ClienteController.php                                      | PHP                |        149 |         29 |         32 |        210 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\ClienteDashboardController.php                             | PHP                |         68 |          8 |         16 |         92 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\Controller.php                                             | PHP                |          7 |          0 |          4 |         11 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\Settings\PasswordController.php                            | PHP                |         26 |          6 |          7 |         39 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\Settings\ProfileController.php                             | PHP                |         41 |          9 |         14 |         64 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\Settings\TwoFactorAuthenticationController.php             | PHP                |         26 |          6 |          6 |         38 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\TarjetaGiftCardController.php                              | PHP                |        314 |         64 |         68 |        446 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\UserController.php                                         | PHP                |         72 |         13 |         16 |        101 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Middleware\HandleAppearance.php                                        | PHP                |         14 |          5 |          5 |         24 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Middleware\HandleInertiaRequests.php                                   | PHP                |         30 |         19 |          7 |         56 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Middleware\RoleMiddleware.php                                          | PHP                |         26 |          5 |          7 |         38 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Requests\Settings\ProfileUpdateRequest.php                             | PHP                |         23 |          5 |          5 |         33 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Requests\Settings\TwoFactorAuthenticationRequest.php                   | PHP                |         17 |          8 |          6 |         31 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Models\Cliente.php                                                          | PHP                |         35 |          0 |          7 |         42 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Models\Movimiento.php                                                       | PHP                |         31 |          0 |          7 |         38 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Models\TarjetaGiftCard.php                                                  | PHP                |         38 |          1 |          7 |         46 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Models\User.php                                                             | PHP                |         34 |         17 |          7 |         58 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Policies\ClientePolicy.php                                                  | PHP                |         58 |         29 |         16 |        103 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Policies\TarjetaGiftCardPolicy.php                                          | PHP                |         62 |         36 |         17 |        115 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Providers\AppServiceProvider.php                                            | PHP                |         19 |          8 |          5 |         32 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Providers\FortifyServiceProvider.php                                        | PHP                |         70 |         18 |         19 |        107 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\app\Services\GiftCardService.php                                                | PHP                |         24 |         15 |          7 |         46 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\bootstrap\app.php                                                               | PHP                |         27 |          2 |          5 |         34 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\bootstrap\providers.php                                                         | PHP                |          5 |          0 |          2 |          7 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\components.json                                                                 | JSON               |         21 |          0 |          1 |         22 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\composer.json                                                                   | JSON               |        101 |          0 |          1 |        102 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\composer.lock                                                                   | JSON               |     10,072 |          0 |          1 |     10,073 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\app.php                                                                  | PHP                |         22 |         82 |         23 |        127 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\auth.php                                                                 | PHP                |         28 |         74 |         14 |        116 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\cache.php                                                                | PHP                |         64 |         35 |         19 |        118 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\database.php                                                             | PHP                |        118 |         43 |         23 |        184 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\filesystems.php                                                          | PHP                |         36 |         32 |         13 |         81 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\fortify.php                                                              | PHP                |         27 |        105 |         26 |        158 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\inertia.php                                                              | PHP                |         21 |         23 |         12 |         56 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\logging.php                                                              | PHP                |         79 |         33 |         21 |        133 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\mail.php                                                                 | PHP                |         57 |         43 |         19 |        119 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\permission.php                                                           | PHP                |         34 |        121 |         48 |        203 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\queue.php                                                                | PHP                |         65 |         45 |         20 |        130 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\services.php                                                             | PHP                |         20 |         11 |          8 |         39 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\config\session.php                                                              | PHP                |         23 |        160 |         35 |        218 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\factories\UserFactory.php                                              | PHP                |         36 |         17 |          7 |         60 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\0001_01_01_000000_create_users_table.php                    | PHP                |         38 |          6 |          6 |         50 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\0001_01_01_000001_create_cache_table.php                    | PHP                |         25 |          6 |          5 |         36 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\0001_01_01_000002_create_jobs_table.php                     | PHP                |         46 |          6 |          6 |         58 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\2025_08_26_100418_add_two_factor_columns_to_users_table.php | PHP                |         25 |          6 |          7 |         38 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\2025_11_25_144900_create_clientes_table.php                 | PHP                |         30 |          6 |          4 |         40 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\2025_11_25_150819_create_tarjeta_gift_cards_table.php       | PHP                |         28 |          6 |          5 |         39 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\2025_11_25_152709_create_movimientos_table.php              | PHP                |         26 |          6 |          4 |         36 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\2025_11_26_222402_create_permission_tables.php              | PHP                |        103 |          8 |         24 |        135 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\seeders\AdminUserSeeder.php                                            | PHP                |         68 |          8 |         13 |         89 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\seeders\DatabaseSeeder.php                                             | PHP                |         13 |         16 |          7 |         36 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\seeders\DemoDataSeeder.php                                             | PHP                |        161 |          8 |         13 |        182 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\database\seeders\RolesAndPermissionsSeeder.php                                  | PHP                |         95 |         21 |         20 |        136 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\eslint.config.js                                                                | JavaScript         |         34 |          1 |          2 |         37 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\package-lock.json                                                               | JSON               |      7,986 |          0 |          1 |      7,987 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\package.json                                                                    | JSON               |         77 |          0 |          1 |         78 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\phpunit.xml                                                                     | XML                |         35 |          0 |          1 |         36 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\public\favicon.svg                                                              | XML                |          3 |          0 |          1 |          4 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\public\index.php                                                                | PHP                |         10 |          4 |          7 |         21 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\public\logo.svg                                                                 | XML                |         16 |          0 |          1 |         17 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\css\app.css                                                           | PostCSS            |        123 |          0 |         21 |        144 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\app.tsx                                                            | TypeScript JSX     |         29 |          1 |          6 |         36 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Clientes\ClientesDataTable.tsx                          | TypeScript JSX     |        229 |          1 |          7 |        237 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Clientes\CreateCliente.tsx                              | TypeScript JSX     |        182 |          1 |         16 |        199 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Clientes\EditCliente.tsx                                | TypeScript JSX     |        186 |          1 |         17 |        204 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Clientes\ShowCliente.tsx                                | TypeScript JSX     |         95 |          0 |          4 |         99 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\ClientSelector.tsx                            | TypeScript JSX     |         37 |          1 |          5 |         43 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\CreateGiftCard.tsx                            | TypeScript JSX     |        123 |          1 |         11 |        135 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\DataTable.tsx                                 | TypeScript JSX     |        206 |          2 |          8 |        216 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\EditGiftCard.tsx                              | TypeScript JSX     |        156 |          1 |         15 |        172 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\QRDialog.tsx                                  | TypeScript JSX     |         92 |          1 |          5 |         98 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\ShowGiftCard.tsx                              | TypeScript JSX     |        172 |          0 |          9 |        181 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Movements\MovementsTable.tsx                            | TypeScript JSX     |        341 |          4 |         13 |        358 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\RoleGuard.tsx                                           | TypeScript JSX     |         57 |          7 |         14 |         78 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Transactions\TransactionForm.tsx                        | TypeScript JSX     |        254 |          5 |         18 |        277 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Users\UsersDataTable.tsx                                | TypeScript JSX     |        127 |          2 |          5 |        134 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\alert-error.tsx                                         | TypeScript JSX     |         23 |          0 |          2 |         25 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-content.tsx                                         | TypeScript JSX     |         22 |          0 |          4 |         26 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-header.tsx                                          | TypeScript JSX     |        238 |          2 |         11 |        251 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-logo-icon.tsx                                       | TypeScript JSX     |         12 |          0 |          2 |         14 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-logo.tsx                                            | TypeScript JSX     |         15 |          0 |          2 |         17 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-shell.tsx                                           | TypeScript JSX     |         16 |          0 |          5 |         21 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-sidebar-header.tsx                                  | TypeScript JSX     |         17 |          0 |          2 |         19 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-sidebar.tsx                                         | TypeScript JSX     |         60 |          0 |          6 |         66 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\appearance-dropdown.tsx                                 | TypeScript JSX     |         64 |          0 |          4 |         68 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\appearance-tabs.tsx                                     | TypeScript JSX     |         26 |          0 |          5 |         31 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\breadcrumbs.tsx                                         | TypeScript JSX     |         48 |          0 |          2 |         50 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\delete-user.tsx                                         | TypeScript JSX     |        112 |          0 |          9 |        121 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\heading-small.tsx                                       | TypeScript JSX     |         16 |          0 |          1 |         17 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\heading.tsx                                             | TypeScript JSX     |         16 |          0 |          1 |         17 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\icon.tsx                                                | TypeScript JSX     |         13 |          0 |          3 |         16 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\input-error.tsx                                         | TypeScript JSX     |         16 |          0 |          2 |         18 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\nav-footer.tsx                                          | TypeScript JSX     |         52 |          0 |          2 |         54 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\nav-main.tsx                                            | TypeScript JSX     |         36 |          0 |          2 |         38 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\nav-user.tsx                                            | TypeScript JSX     |         53 |          0 |          3 |         56 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\text-link.tsx                                           | TypeScript JSX     |         21 |          0 |          3 |         24 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\two-factor-recovery-codes.tsx                           | TypeScript JSX     |        154 |          0 |         11 |        165 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\two-factor-setup-modal.tsx                              | TypeScript JSX     |        315 |          0 |         24 |        339 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\alert.tsx                                            | TypeScript JSX     |         60 |          0 |          7 |         67 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\avatar.tsx                                           | TypeScript JSX     |         46 |          0 |          6 |         52 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\badge.tsx                                            | TypeScript JSX     |         41 |          0 |          6 |         47 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\breadcrumb.tsx                                       | TypeScript JSX     |         99 |          0 |         11 |        110 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\button.tsx                                           | TypeScript JSX     |         53 |          0 |          6 |         59 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\card.tsx                                             | TypeScript JSX     |         60 |          0 |          9 |         69 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\checkbox.tsx                                         | TypeScript JSX     |         27 |          0 |          4 |         31 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\code-display.tsx                                     | TypeScript JSX     |         22 |          0 |          3 |         25 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\collapsible.tsx                                      | TypeScript JSX     |         27 |          0 |          5 |         32 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\dialog.tsx                                           | TypeScript JSX     |        121 |          0 |         13 |        134 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\dropdown-menu.tsx                                    | TypeScript JSX     |        238 |          0 |         18 |        256 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\icon.tsx                                             | TypeScript JSX     |         11 |          0 |          4 |         15 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\input-otp.tsx                                        | TypeScript JSX     |         62 |          0 |          8 |         70 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\input.tsx                                            | TypeScript JSX     |         18 |          0 |          4 |         22 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\label.tsx                                            | TypeScript JSX     |         19 |          0 |          4 |         23 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\navigation-menu.tsx                                  | TypeScript JSX     |        157 |          0 |         12 |        169 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\placeholder-pattern.tsx                              | TypeScript JSX     |         17 |          0 |          4 |         21 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\select.tsx                                           | TypeScript JSX     |        167 |          0 |         13 |        180 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\separator.tsx                                        | TypeScript JSX     |         23 |          0 |          4 |         27 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\sheet.tsx                                            | TypeScript JSX     |        125 |          0 |         13 |        138 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\sidebar.tsx                                          | TypeScript JSX     |        654 |         13 |         55 |        722 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\skeleton.tsx                                         | TypeScript JSX     |         11 |          0 |          3 |         14 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\spinner.tsx                                          | TypeScript JSX     |         13 |          0 |          4 |         17 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\switch.tsx                                           | TypeScript JSX     |         35 |          0 |          3 |         38 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\table.tsx                                            | TypeScript JSX     |        104 |          0 |         11 |        115 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\toggle-group.tsx                                     | TypeScript JSX     |         65 |          0 |          7 |         72 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\toggle.tsx                                           | TypeScript JSX     |         41 |          0 |          5 |         46 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\tooltip.tsx                                          | TypeScript JSX     |         53 |          0 |          7 |         60 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\user-info.tsx                                           | TypeScript JSX     |         30 |          0 |          3 |         33 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\user-menu-content.tsx                                   | TypeScript JSX     |         73 |          0 |          5 |         78 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-appearance.tsx                                           | TypeScript JSX     |         58 |          4 |         23 |         85 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-clipboard.ts                                             | TypeScript         |         22 |          1 |         10 |         33 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-initials.tsx                                             | TypeScript JSX     |         11 |          0 |          5 |         16 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-mobile-navigation.ts                                     | TypeScript         |          6 |          1 |          2 |          9 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-mobile.tsx                                               | TypeScript JSX     |         15 |          0 |          7 |         22 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-two-factor-auth.ts                                       | TypeScript         |         89 |          0 |         16 |        105 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\app-layout.tsx                                             | TypeScript JSX     |         12 |          0 |          3 |         15 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\app\app-header-layout.tsx                                  | TypeScript JSX     |         16 |          0 |          2 |         18 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\app\app-sidebar-layout.tsx                                 | TypeScript JSX     |         20 |          0 |          2 |         22 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\auth-layout.tsx                                            | TypeScript JSX     |         17 |          0 |          2 |         19 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\auth\auth-card-layout.tsx                                  | TypeScript JSX     |         46 |          0 |          3 |         49 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\auth\auth-simple-layout.tsx                                | TypeScript JSX     |         41 |          0 |          4 |         45 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\auth\auth-split-layout.tsx                                 | TypeScript JSX     |         59 |          0 |          4 |         63 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\settings\layout.tsx                                        | TypeScript JSX     |         80 |          1 |          8 |         89 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\lib\utils.ts                                                       | TypeScript         |         15 |          0 |          4 |         19 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Cliente\Movimientos.tsx                                      | TypeScript JSX     |        119 |          3 |         10 |        132 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Cliente\Tarjetas.tsx                                         | TypeScript JSX     |         80 |          0 |          7 |         87 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Clientes\Create.tsx                                          | TypeScript JSX     |         37 |          0 |          4 |         41 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Clientes\Edit.tsx                                            | TypeScript JSX     |         38 |          0 |          5 |         43 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Clientes\Index.tsx                                           | TypeScript JSX     |         51 |          0 |          6 |         57 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Clientes\Show.tsx                                            | TypeScript JSX     |         38 |          0 |          5 |         43 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Dashboard\Index.tsx                                          | TypeScript JSX     |        340 |         11 |         22 |        373 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Encargado\AsignarTarjetas.tsx                                | TypeScript JSX     |        289 |          5 |         19 |        313 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\GiftCards\Create.tsx                                         | TypeScript JSX     |         37 |          0 |          4 |         41 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\GiftCards\Edit.tsx                                           | TypeScript JSX     |         38 |          0 |          5 |         43 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\GiftCards\Index.tsx                                          | TypeScript JSX     |         50 |          0 |          6 |         56 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\GiftCards\Show.tsx                                           | TypeScript JSX     |         38 |          0 |          5 |         43 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Movements\Index.tsx                                          | TypeScript JSX     |         72 |          1 |          7 |         80 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Transactions\Index.tsx                                       | TypeScript JSX     |         32 |          0 |          4 |         36 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Users\Edit.tsx                                               | TypeScript JSX     |        136 |          0 |         14 |        150 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Users\Index.tsx                                              | TypeScript JSX     |         42 |          1 |          6 |         49 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\confirm-password.tsx                                    | TypeScript JSX     |         46 |          0 |          5 |         51 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\forgot-password.tsx                                     | TypeScript JSX     |         61 |          1 |          8 |         70 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\login.tsx                                               | TypeScript JSX     |        112 |          0 |          9 |        121 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\register.tsx                                            | TypeScript JSX     |        108 |          0 |          8 |        116 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\reset-password.tsx                                      | TypeScript JSX     |         87 |          0 |          8 |         95 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\two-factor-challenge.tsx                                | TypeScript JSX     |        123 |          0 |          9 |        132 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\verify-email.tsx                                        | TypeScript JSX     |         39 |          1 |          5 |         45 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\dashboard.tsx                                                | TypeScript JSX     |         34 |          0 |          3 |         37 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\settings\appearance.tsx                                      | TypeScript JSX     |         29 |          0 |          6 |         35 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\settings\password.tsx                                        | TypeScript JSX     |        129 |          0 |         18 |        147 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\settings\profile.tsx                                         | TypeScript JSX     |        132 |          0 |         17 |        149 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\settings\two-factor.tsx                                      | TypeScript JSX     |        129 |          0 |          9 |        138 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\welcome.tsx                                                  | TypeScript JSX     |        806 |          0 |          3 |        809 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\ssr.tsx                                                            | TypeScript JSX     |         20 |          0 |          3 |         23 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\types\giftCard.ts                                                  | TypeScript         |         61 |          1 |          6 |         68 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\types\index.d.ts                                                   | TypeScript         |         41 |          0 |          7 |         48 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\types\vite-env.d.ts                                                | TypeScript         |          0 |          1 |          1 |          2 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\resources\views\app.blade.php                                                   | PHP                |         40 |          0 |         10 |         50 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\routes\console.php                                                              | PHP                |          6 |          0 |          3 |          9 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\routes\settings.php                                                             | PHP                |         21 |          0 |          8 |         29 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\routes\web.php                                                                  | PHP                |         62 |         15 |         18 |         95 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\AuthenticationTest.php                                       | PHP                |         62 |          0 |         22 |         84 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\EmailVerificationTest.php                                    | PHP                |         67 |          0 |         25 |         92 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\PasswordConfirmationTest.php                                 | PHP                |         15 |          0 |          7 |         22 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\PasswordResetTest.php                                        | PHP                |         51 |          0 |         22 |         73 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\RegistrationTest.php                                         | PHP                |         15 |          0 |          4 |         19 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\TwoFactorChallengeTest.php                                   | PHP                |         35 |          0 |         10 |         45 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\VerificationNotificationTest.php                             | PHP                |         24 |          0 |          9 |         33 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\DashboardTest.php                                                 | PHP                |          9 |          0 |          4 |         13 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\ExampleTest.php                                                   | PHP                |          5 |          0 |          3 |          8 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Settings\PasswordUpdateTest.php                                   | PHP                |         39 |          0 |         11 |         50 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Settings\ProfileUpdateTest.php                                    | PHP                |         64 |          0 |         21 |         85 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Settings\TwoFactorAuthenticationTest.php                          | PHP                |         61 |          0 |         18 |         79 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Pest.php                                                                  | PHP                |         10 |         31 |          7 |         48 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\TestCase.php                                                              | PHP                |          6 |          1 |          4 |         11 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Unit\ExampleTest.php                                                      | PHP                |          4 |          0 |          1 |          5 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\tsconfig.json                                                                   | JSON with Comments |         21 |         88 |          9 |        118 |
+| d:\PROYECTOCALENDARIO\proyectogiftcard\vite.config.ts                                                                  | TypeScript         |         26 |          0 |          2 |         28 |
+| Total                                                                                                                  |                    |     31,783 |      1,465 |      1,855 |     35,103 |
++------------------------------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

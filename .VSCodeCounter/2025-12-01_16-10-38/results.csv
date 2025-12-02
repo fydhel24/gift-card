@@ -1,0 +1,206 @@
+"filename", "language", "PHP", "JSON with Comments", "XML", "TypeScript", "TypeScript JSX", "JSON", "PostCSS", "Ignore", "JavaScript", "YAML", "comment", "blank", "total"
+"d:\PROYECTOCALENDARIO\proyectogiftcard\.github\workflows\lint.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 5, 10, 46
+"d:\PROYECTOCALENDARIO\proyectogiftcard\.github\workflows\tests.yml", "YAML", 0, 0, 0, 0, 0, 0, 0, 0, 0, 39, 0, 12, 51
+"d:\PROYECTOCALENDARIO\proyectogiftcard\.prettierignore", "Ignore", 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 1, 3
+"d:\PROYECTOCALENDARIO\proyectogiftcard\.prettierrc", "JSON", 0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 0, 1, 26
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Actions\Fortify\CreateNewUser.php", "PHP", 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 40
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Actions\Fortify\PasswordValidationRules.php", "PHP", 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 4, 19
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Actions\Fortify\ResetUserPassword.php", "PHP", 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 6, 29
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\ClienteController.php", "PHP", 149, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 32, 210
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\ClienteDashboardController.php", "PHP", 68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 16, 92
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\Controller.php", "PHP", 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 11
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\Settings\PasswordController.php", "PHP", 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 7, 39
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\Settings\ProfileController.php", "PHP", 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 14, 64
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\Settings\TwoFactorAuthenticationController.php", "PHP", 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 38
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\TarjetaGiftCardController.php", "PHP", 314, 0, 0, 0, 0, 0, 0, 0, 0, 0, 64, 68, 446
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Controllers\UserController.php", "PHP", 72, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 16, 101
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Middleware\HandleAppearance.php", "PHP", 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 24
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Middleware\HandleInertiaRequests.php", "PHP", 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 7, 56
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Middleware\RoleMiddleware.php", "PHP", 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 7, 38
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Requests\Settings\ProfileUpdateRequest.php", "PHP", 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 5, 33
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Http\Requests\Settings\TwoFactorAuthenticationRequest.php", "PHP", 17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 6, 31
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Models\Cliente.php", "PHP", 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 42
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Models\Movimiento.php", "PHP", 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 38
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Models\TarjetaGiftCard.php", "PHP", 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 7, 46
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Models\User.php", "PHP", 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 7, 58
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Policies\ClientePolicy.php", "PHP", 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 29, 16, 103
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Policies\TarjetaGiftCardPolicy.php", "PHP", 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 17, 115
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Providers\AppServiceProvider.php", "PHP", 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 5, 32
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Providers\FortifyServiceProvider.php", "PHP", 70, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 19, 107
+"d:\PROYECTOCALENDARIO\proyectogiftcard\app\Services\GiftCardService.php", "PHP", 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 7, 46
+"d:\PROYECTOCALENDARIO\proyectogiftcard\bootstrap\app.php", "PHP", 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 5, 34
+"d:\PROYECTOCALENDARIO\proyectogiftcard\bootstrap\providers.php", "PHP", 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 7
+"d:\PROYECTOCALENDARIO\proyectogiftcard\components.json", "JSON", 0, 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 1, 22
+"d:\PROYECTOCALENDARIO\proyectogiftcard\composer.json", "JSON", 0, 0, 0, 0, 0, 101, 0, 0, 0, 0, 0, 1, 102
+"d:\PROYECTOCALENDARIO\proyectogiftcard\composer.lock", "JSON", 0, 0, 0, 0, 0, 10072, 0, 0, 0, 0, 0, 1, 10073
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\app.php", "PHP", 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 82, 23, 127
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\auth.php", "PHP", 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 74, 14, 116
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\cache.php", "PHP", 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 35, 19, 118
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\database.php", "PHP", 118, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 23, 184
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\filesystems.php", "PHP", 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 13, 81
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\fortify.php", "PHP", 27, 0, 0, 0, 0, 0, 0, 0, 0, 0, 105, 26, 158
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\inertia.php", "PHP", 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 12, 56
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\logging.php", "PHP", 79, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 21, 133
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\mail.php", "PHP", 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 43, 19, 119
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\permission.php", "PHP", 34, 0, 0, 0, 0, 0, 0, 0, 0, 0, 121, 48, 203
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\queue.php", "PHP", 65, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 20, 130
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\services.php", "PHP", 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 8, 39
+"d:\PROYECTOCALENDARIO\proyectogiftcard\config\session.php", "PHP", 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 160, 35, 218
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\factories\UserFactory.php", "PHP", 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 7, 60
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\0001_01_01_000000_create_users_table.php", "PHP", 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 50
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\0001_01_01_000001_create_cache_table.php", "PHP", 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 5, 36
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\0001_01_01_000002_create_jobs_table.php", "PHP", 46, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 6, 58
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\2025_08_26_100418_add_two_factor_columns_to_users_table.php", "PHP", 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 7, 38
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\2025_11_25_144900_create_clientes_table.php", "PHP", 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 4, 40
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\2025_11_25_150819_create_tarjeta_gift_cards_table.php", "PHP", 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 5, 39
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\2025_11_25_152709_create_movimientos_table.php", "PHP", 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 6, 4, 36
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\migrations\2025_11_26_222402_create_permission_tables.php", "PHP", 103, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 24, 135
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\seeders\AdminUserSeeder.php", "PHP", 68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 13, 89
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\seeders\DatabaseSeeder.php", "PHP", 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 7, 36
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\seeders\DemoDataSeeder.php", "PHP", 161, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 13, 182
+"d:\PROYECTOCALENDARIO\proyectogiftcard\database\seeders\RolesAndPermissionsSeeder.php", "PHP", 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 20, 136
+"d:\PROYECTOCALENDARIO\proyectogiftcard\eslint.config.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 0, 34, 0, 1, 2, 37
+"d:\PROYECTOCALENDARIO\proyectogiftcard\package-lock.json", "JSON", 0, 0, 0, 0, 0, 7986, 0, 0, 0, 0, 0, 1, 7987
+"d:\PROYECTOCALENDARIO\proyectogiftcard\package.json", "JSON", 0, 0, 0, 0, 0, 77, 0, 0, 0, 0, 0, 1, 78
+"d:\PROYECTOCALENDARIO\proyectogiftcard\phpunit.xml", "XML", 0, 0, 35, 0, 0, 0, 0, 0, 0, 0, 0, 1, 36
+"d:\PROYECTOCALENDARIO\proyectogiftcard\public\favicon.svg", "XML", 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4
+"d:\PROYECTOCALENDARIO\proyectogiftcard\public\index.php", "PHP", 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 7, 21
+"d:\PROYECTOCALENDARIO\proyectogiftcard\public\logo.svg", "XML", 0, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 1, 17
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\css\app.css", "PostCSS", 0, 0, 0, 0, 0, 0, 123, 0, 0, 0, 0, 21, 144
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\app.tsx", "TypeScript JSX", 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 1, 6, 36
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Clientes\ClientesDataTable.tsx", "TypeScript JSX", 0, 0, 0, 0, 229, 0, 0, 0, 0, 0, 1, 7, 237
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Clientes\CreateCliente.tsx", "TypeScript JSX", 0, 0, 0, 0, 182, 0, 0, 0, 0, 0, 1, 16, 199
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Clientes\EditCliente.tsx", "TypeScript JSX", 0, 0, 0, 0, 186, 0, 0, 0, 0, 0, 1, 17, 204
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Clientes\ShowCliente.tsx", "TypeScript JSX", 0, 0, 0, 0, 95, 0, 0, 0, 0, 0, 0, 4, 99
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\ClientSelector.tsx", "TypeScript JSX", 0, 0, 0, 0, 37, 0, 0, 0, 0, 0, 1, 5, 43
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\CreateGiftCard.tsx", "TypeScript JSX", 0, 0, 0, 0, 123, 0, 0, 0, 0, 0, 1, 11, 135
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\DataTable.tsx", "TypeScript JSX", 0, 0, 0, 0, 206, 0, 0, 0, 0, 0, 2, 8, 216
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\EditGiftCard.tsx", "TypeScript JSX", 0, 0, 0, 0, 156, 0, 0, 0, 0, 0, 1, 15, 172
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\QRDialog.tsx", "TypeScript JSX", 0, 0, 0, 0, 92, 0, 0, 0, 0, 0, 1, 5, 98
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\GiftCards\ShowGiftCard.tsx", "TypeScript JSX", 0, 0, 0, 0, 172, 0, 0, 0, 0, 0, 0, 9, 181
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Movements\MovementsTable.tsx", "TypeScript JSX", 0, 0, 0, 0, 341, 0, 0, 0, 0, 0, 4, 13, 358
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\RoleGuard.tsx", "TypeScript JSX", 0, 0, 0, 0, 57, 0, 0, 0, 0, 0, 7, 14, 78
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Transactions\TransactionForm.tsx", "TypeScript JSX", 0, 0, 0, 0, 254, 0, 0, 0, 0, 0, 5, 18, 277
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\Users\UsersDataTable.tsx", "TypeScript JSX", 0, 0, 0, 0, 127, 0, 0, 0, 0, 0, 2, 5, 134
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\alert-error.tsx", "TypeScript JSX", 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 2, 25
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-content.tsx", "TypeScript JSX", 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 4, 26
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-header.tsx", "TypeScript JSX", 0, 0, 0, 0, 238, 0, 0, 0, 0, 0, 2, 11, 251
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-logo-icon.tsx", "TypeScript JSX", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 2, 14
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-logo.tsx", "TypeScript JSX", 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 2, 17
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-shell.tsx", "TypeScript JSX", 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 5, 21
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-sidebar-header.tsx", "TypeScript JSX", 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 2, 19
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\app-sidebar.tsx", "TypeScript JSX", 0, 0, 0, 0, 60, 0, 0, 0, 0, 0, 0, 6, 66
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\appearance-dropdown.tsx", "TypeScript JSX", 0, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 4, 68
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\appearance-tabs.tsx", "TypeScript JSX", 0, 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 5, 31
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\breadcrumbs.tsx", "TypeScript JSX", 0, 0, 0, 0, 48, 0, 0, 0, 0, 0, 0, 2, 50
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\delete-user.tsx", "TypeScript JSX", 0, 0, 0, 0, 112, 0, 0, 0, 0, 0, 0, 9, 121
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\heading-small.tsx", "TypeScript JSX", 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 1, 17
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\heading.tsx", "TypeScript JSX", 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 1, 17
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\icon.tsx", "TypeScript JSX", 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 3, 16
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\input-error.tsx", "TypeScript JSX", 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 2, 18
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\nav-footer.tsx", "TypeScript JSX", 0, 0, 0, 0, 52, 0, 0, 0, 0, 0, 0, 2, 54
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\nav-main.tsx", "TypeScript JSX", 0, 0, 0, 0, 36, 0, 0, 0, 0, 0, 0, 2, 38
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\nav-user.tsx", "TypeScript JSX", 0, 0, 0, 0, 53, 0, 0, 0, 0, 0, 0, 3, 56
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\text-link.tsx", "TypeScript JSX", 0, 0, 0, 0, 21, 0, 0, 0, 0, 0, 0, 3, 24
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\two-factor-recovery-codes.tsx", "TypeScript JSX", 0, 0, 0, 0, 154, 0, 0, 0, 0, 0, 0, 11, 165
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\two-factor-setup-modal.tsx", "TypeScript JSX", 0, 0, 0, 0, 315, 0, 0, 0, 0, 0, 0, 24, 339
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\alert.tsx", "TypeScript JSX", 0, 0, 0, 0, 60, 0, 0, 0, 0, 0, 0, 7, 67
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\avatar.tsx", "TypeScript JSX", 0, 0, 0, 0, 46, 0, 0, 0, 0, 0, 0, 6, 52
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\badge.tsx", "TypeScript JSX", 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 6, 47
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\breadcrumb.tsx", "TypeScript JSX", 0, 0, 0, 0, 99, 0, 0, 0, 0, 0, 0, 11, 110
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\button.tsx", "TypeScript JSX", 0, 0, 0, 0, 53, 0, 0, 0, 0, 0, 0, 6, 59
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\card.tsx", "TypeScript JSX", 0, 0, 0, 0, 60, 0, 0, 0, 0, 0, 0, 9, 69
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\checkbox.tsx", "TypeScript JSX", 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 4, 31
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\code-display.tsx", "TypeScript JSX", 0, 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 3, 25
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\collapsible.tsx", "TypeScript JSX", 0, 0, 0, 0, 27, 0, 0, 0, 0, 0, 0, 5, 32
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\dialog.tsx", "TypeScript JSX", 0, 0, 0, 0, 121, 0, 0, 0, 0, 0, 0, 13, 134
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\dropdown-menu.tsx", "TypeScript JSX", 0, 0, 0, 0, 238, 0, 0, 0, 0, 0, 0, 18, 256
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\icon.tsx", "TypeScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 4, 15
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\input-otp.tsx", "TypeScript JSX", 0, 0, 0, 0, 62, 0, 0, 0, 0, 0, 0, 8, 70
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\input.tsx", "TypeScript JSX", 0, 0, 0, 0, 18, 0, 0, 0, 0, 0, 0, 4, 22
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\label.tsx", "TypeScript JSX", 0, 0, 0, 0, 19, 0, 0, 0, 0, 0, 0, 4, 23
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\navigation-menu.tsx", "TypeScript JSX", 0, 0, 0, 0, 157, 0, 0, 0, 0, 0, 0, 12, 169
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\placeholder-pattern.tsx", "TypeScript JSX", 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 4, 21
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\select.tsx", "TypeScript JSX", 0, 0, 0, 0, 167, 0, 0, 0, 0, 0, 0, 13, 180
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\separator.tsx", "TypeScript JSX", 0, 0, 0, 0, 23, 0, 0, 0, 0, 0, 0, 4, 27
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\sheet.tsx", "TypeScript JSX", 0, 0, 0, 0, 125, 0, 0, 0, 0, 0, 0, 13, 138
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\sidebar.tsx", "TypeScript JSX", 0, 0, 0, 0, 654, 0, 0, 0, 0, 0, 13, 55, 722
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\skeleton.tsx", "TypeScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 3, 14
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\spinner.tsx", "TypeScript JSX", 0, 0, 0, 0, 13, 0, 0, 0, 0, 0, 0, 4, 17
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\switch.tsx", "TypeScript JSX", 0, 0, 0, 0, 35, 0, 0, 0, 0, 0, 0, 3, 38
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\table.tsx", "TypeScript JSX", 0, 0, 0, 0, 104, 0, 0, 0, 0, 0, 0, 11, 115
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\toggle-group.tsx", "TypeScript JSX", 0, 0, 0, 0, 65, 0, 0, 0, 0, 0, 0, 7, 72
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\toggle.tsx", "TypeScript JSX", 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 5, 46
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\ui\tooltip.tsx", "TypeScript JSX", 0, 0, 0, 0, 53, 0, 0, 0, 0, 0, 0, 7, 60
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\user-info.tsx", "TypeScript JSX", 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 3, 33
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\components\user-menu-content.tsx", "TypeScript JSX", 0, 0, 0, 0, 73, 0, 0, 0, 0, 0, 0, 5, 78
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-appearance.tsx", "TypeScript JSX", 0, 0, 0, 0, 58, 0, 0, 0, 0, 0, 4, 23, 85
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-clipboard.ts", "TypeScript", 0, 0, 0, 22, 0, 0, 0, 0, 0, 0, 1, 10, 33
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-initials.tsx", "TypeScript JSX", 0, 0, 0, 0, 11, 0, 0, 0, 0, 0, 0, 5, 16
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-mobile-navigation.ts", "TypeScript", 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 1, 2, 9
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-mobile.tsx", "TypeScript JSX", 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 7, 22
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\hooks\use-two-factor-auth.ts", "TypeScript", 0, 0, 0, 89, 0, 0, 0, 0, 0, 0, 0, 16, 105
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\app-layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 0, 3, 15
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\app\app-header-layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 2, 18
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\app\app-sidebar-layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 2, 22
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\auth-layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 17, 0, 0, 0, 0, 0, 0, 2, 19
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\auth\auth-card-layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 46, 0, 0, 0, 0, 0, 0, 3, 49
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\auth\auth-simple-layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 4, 45
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\auth\auth-split-layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 59, 0, 0, 0, 0, 0, 0, 4, 63
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\layouts\settings\layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 80, 0, 0, 0, 0, 0, 1, 8, 89
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\lib\utils.ts", "TypeScript", 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 4, 19
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Cliente\Movimientos.tsx", "TypeScript JSX", 0, 0, 0, 0, 119, 0, 0, 0, 0, 0, 3, 10, 132
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Cliente\Tarjetas.tsx", "TypeScript JSX", 0, 0, 0, 0, 80, 0, 0, 0, 0, 0, 0, 7, 87
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Clientes\Create.tsx", "TypeScript JSX", 0, 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 4, 41
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Clientes\Edit.tsx", "TypeScript JSX", 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 5, 43
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Clientes\Index.tsx", "TypeScript JSX", 0, 0, 0, 0, 51, 0, 0, 0, 0, 0, 0, 6, 57
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Clientes\Show.tsx", "TypeScript JSX", 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 5, 43
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Dashboard\Index.tsx", "TypeScript JSX", 0, 0, 0, 0, 340, 0, 0, 0, 0, 0, 11, 22, 373
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Encargado\AsignarTarjetas.tsx", "TypeScript JSX", 0, 0, 0, 0, 289, 0, 0, 0, 0, 0, 5, 19, 313
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\GiftCards\Create.tsx", "TypeScript JSX", 0, 0, 0, 0, 37, 0, 0, 0, 0, 0, 0, 4, 41
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\GiftCards\Edit.tsx", "TypeScript JSX", 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 5, 43
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\GiftCards\Index.tsx", "TypeScript JSX", 0, 0, 0, 0, 50, 0, 0, 0, 0, 0, 0, 6, 56
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\GiftCards\Show.tsx", "TypeScript JSX", 0, 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 5, 43
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Movements\Index.tsx", "TypeScript JSX", 0, 0, 0, 0, 72, 0, 0, 0, 0, 0, 1, 7, 80
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Transactions\Index.tsx", "TypeScript JSX", 0, 0, 0, 0, 32, 0, 0, 0, 0, 0, 0, 4, 36
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Users\Edit.tsx", "TypeScript JSX", 0, 0, 0, 0, 136, 0, 0, 0, 0, 0, 0, 14, 150
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\Users\Index.tsx", "TypeScript JSX", 0, 0, 0, 0, 42, 0, 0, 0, 0, 0, 1, 6, 49
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\confirm-password.tsx", "TypeScript JSX", 0, 0, 0, 0, 46, 0, 0, 0, 0, 0, 0, 5, 51
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\forgot-password.tsx", "TypeScript JSX", 0, 0, 0, 0, 61, 0, 0, 0, 0, 0, 1, 8, 70
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\login.tsx", "TypeScript JSX", 0, 0, 0, 0, 112, 0, 0, 0, 0, 0, 0, 9, 121
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\register.tsx", "TypeScript JSX", 0, 0, 0, 0, 108, 0, 0, 0, 0, 0, 0, 8, 116
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\reset-password.tsx", "TypeScript JSX", 0, 0, 0, 0, 87, 0, 0, 0, 0, 0, 0, 8, 95
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\two-factor-challenge.tsx", "TypeScript JSX", 0, 0, 0, 0, 123, 0, 0, 0, 0, 0, 0, 9, 132
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\auth\verify-email.tsx", "TypeScript JSX", 0, 0, 0, 0, 39, 0, 0, 0, 0, 0, 1, 5, 45
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\dashboard.tsx", "TypeScript JSX", 0, 0, 0, 0, 34, 0, 0, 0, 0, 0, 0, 3, 37
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\settings\appearance.tsx", "TypeScript JSX", 0, 0, 0, 0, 29, 0, 0, 0, 0, 0, 0, 6, 35
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\settings\password.tsx", "TypeScript JSX", 0, 0, 0, 0, 129, 0, 0, 0, 0, 0, 0, 18, 147
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\settings\profile.tsx", "TypeScript JSX", 0, 0, 0, 0, 132, 0, 0, 0, 0, 0, 0, 17, 149
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\settings\two-factor.tsx", "TypeScript JSX", 0, 0, 0, 0, 129, 0, 0, 0, 0, 0, 0, 9, 138
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\pages\welcome.tsx", "TypeScript JSX", 0, 0, 0, 0, 806, 0, 0, 0, 0, 0, 0, 3, 809
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\ssr.tsx", "TypeScript JSX", 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 3, 23
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\types\giftCard.ts", "TypeScript", 0, 0, 0, 61, 0, 0, 0, 0, 0, 0, 1, 6, 68
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\types\index.d.ts", "TypeScript", 0, 0, 0, 41, 0, 0, 0, 0, 0, 0, 0, 7, 48
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\js\types\vite-env.d.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 2
+"d:\PROYECTOCALENDARIO\proyectogiftcard\resources\views\app.blade.php", "PHP", 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 50
+"d:\PROYECTOCALENDARIO\proyectogiftcard\routes\console.php", "PHP", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 9
+"d:\PROYECTOCALENDARIO\proyectogiftcard\routes\settings.php", "PHP", 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8, 29
+"d:\PROYECTOCALENDARIO\proyectogiftcard\routes\web.php", "PHP", 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15, 18, 95
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\AuthenticationTest.php", "PHP", 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 84
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\EmailVerificationTest.php", "PHP", 67, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 25, 92
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\PasswordConfirmationTest.php", "PHP", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 22
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\PasswordResetTest.php", "PHP", 51, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 73
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\RegistrationTest.php", "PHP", 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 19
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\TwoFactorChallengeTest.php", "PHP", 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 10, 45
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Auth\VerificationNotificationTest.php", "PHP", 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 33
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\DashboardTest.php", "PHP", 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 13
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\ExampleTest.php", "PHP", 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 8
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Settings\PasswordUpdateTest.php", "PHP", 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 50
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Settings\ProfileUpdateTest.php", "PHP", 64, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 21, 85
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Feature\Settings\TwoFactorAuthenticationTest.php", "PHP", 61, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 79
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Pest.php", "PHP", 10, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 7, 48
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\TestCase.php", "PHP", 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 4, 11
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tests\Unit\ExampleTest.php", "PHP", 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 5
+"d:\PROYECTOCALENDARIO\proyectogiftcard\tsconfig.json", "JSON with Comments", 0, 21, 0, 0, 0, 0, 0, 0, 0, 0, 88, 9, 118
+"d:\PROYECTOCALENDARIO\proyectogiftcard\vite.config.ts", "TypeScript", 0, 0, 0, 26, 0, 0, 0, 0, 0, 0, 0, 2, 28
+"Total", "-", 3167, 21, 54, 260, 9770, 18282, 123, 2, 34, 70, 1465, 1855, 35103

@@ -14,14 +14,22 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // User::factory(10)->create();
+        // 1. Primero: crear roles y permisos
+        $this->call(RolesAndPermissionsSeeder::class);
 
-        User::firstOrCreate(
+        // 2. Luego: crear usuarios administrativos y de prueba
+        $this->call(AdminUserSeeder::class);
+
+        // 3. Finalmente: crear datos de demostración (clientes, tarjetas, movimientos)
+        $this->call(DemoDataSeeder::class);
+
+        /* User::firstOrCreate(
             ['email' => 'test@example.com'],
             [
                 'name' => 'Test User',
                 'password' => 'password',
                 'email_verified_at' => now(),
             ]
-        );
+        ); */
     }
 }
