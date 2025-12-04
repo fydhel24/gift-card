@@ -1,8 +1,10 @@
+import { Button } from '@/components/ui/button';
 import { UsersDataTable } from '@/components/Users/UsersDataTable';
 import AppLayout from '@/layouts/app-layout';
-import { index as usersIndex } from '@/routes/users';
+import { create as usersCreate, index as usersIndex } from '@/routes/users';
 import { type BreadcrumbItem } from '@/types';
-import { Head, usePage } from '@inertiajs/react';
+import { Head, Link, usePage } from '@inertiajs/react';
+import { Plus } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -36,6 +38,12 @@ export default function Index() {
                             Gestiona los usuarios del sistema.
                         </p>
                     </div>
+                    <Button asChild>
+                        <Link href={usersCreate().url}>
+                            <Plus className="mr-2 h-4 w-4" />
+                            Nuevo Usuario
+                        </Link>
+                    </Button>
                 </div>
 
                 <UsersDataTable

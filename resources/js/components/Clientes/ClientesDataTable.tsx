@@ -212,10 +212,10 @@ export function ClientesDataTable({ data, onSearch, initialSearch = '', filters 
       </div>
 
       {/* Paginación */}
-      {data.meta && data.meta.last_page > 1 && (
+      {data.last_page > 1 && (
         <div className="flex items-center justify-between">
           <div className="text-sm text-muted-foreground">
-            Mostrando {data.data.length} de {data.meta.total} clientes
+            Mostrando {data.data.length} de {data.total} clientes
           </div>
           <div className="flex space-x-1">
             {data.links && data.links.map((link: any, index: number) => (

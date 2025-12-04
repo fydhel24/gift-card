@@ -21,7 +21,7 @@ export interface User {
   id: number;
   name: string;
   email: string;
-  roles?: string[];
+  roles?: Role[];
   created_at: string;
   updated_at: string;
 }
@@ -47,22 +47,18 @@ export interface GiftCard {
 
 export interface PaginatedGiftCards {
   data: GiftCard[];
-  meta: {
-    current_page: number;
-    last_page: number;
-    per_page: number;
-    total: number;
-  };
+  current_page: number;
+  last_page: number;
+  per_page: number;
+  total: number;
   links: Array<{ url: string | null; label: string; active: boolean }>;
 }
 
 export interface PaginatedClientes {
   data: Cliente[];
-  meta: {
-    current_page: number;
-    last_page: number;
-    per_page: number;
-    total: number;
-  };
+  current_page: number;
+  last_page: number;
+  per_page: number;
+  total: number;
   links: Array<{ url: string | null; label: string; active: boolean }>;
 }

@@ -14,6 +14,52 @@ use Spatie\Permission\Models\Role;
 class UserController extends Controller
 {
     /**
+     * Muestra formulario para crear usuario.
+     */
+    public function create(): Response
+    {
+        $roles = Role::all();
+        return Inertia::render('Users/Create', [
+            'roles' => $roles,
+        ]);
+    }
+
+    /**
+     * Crea un nuevo usuario.
+     */
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255', Rule::unique('users')],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'roles' => ['array'],
+            'roles.*' => ['exists:roles,name'],
+        ]);
+
+        DB::beginTransaction();
+        try {
+            $user = User::create([
+                'name' => $validated['name'],
+                'email' => $validated['email'],
+                'password' => Hash::make($validated['password']),
+                'email_verified_at' => now(),
+            ]);
+
+            if (isset($validated['roles'])) {
+                $user->assignRole($validated['roles']);
+            }
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return back()->withErrors(['error' => 'Error al crear el usuario.']);
+        }
+
+        return to_route('users.index')->with('success', 'Usuario creado exitosamente.');
+    }
+
+    /**
      * Muestra lista paginada y buscable de usuarios.
      */
     public function index(Request $request): Response

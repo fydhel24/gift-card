@@ -191,10 +191,10 @@ export function DataTable({ data, onSearch, initialSearch = '' }: DataTableProps
       </Table>
 
       {/* Paginación */}
-      {data.meta && data.meta.last_page > 1 && (
+      {data.last_page > 1 && (
         <div className="flex items-center justify-between mt-4">
           <div className="text-sm text-muted-foreground">
-            Mostrando {data.data.length} de {data.meta.total} tarjetas
+            Mostrando {data.data.length} de {data.total} tarjetas
           </div>
           <div className="flex space-x-1">
             {data.links && data.links.map((link: any, index: number) => (

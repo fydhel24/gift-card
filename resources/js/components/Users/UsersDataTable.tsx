@@ -16,12 +16,10 @@ import { type User } from '@/types/giftCard';
 interface UsersDataTableProps {
     data: {
         data: User[];
-        meta: {
-            current_page: number;
-            last_page: number;
-            per_page: number;
-            total: number;
-        };
+        current_page: number;
+        last_page: number;
+        per_page: number;
+        total: number;
         links: Array<{ url: string | null; label: string; active: boolean }>;
     };
     onSearch: (search: string) => void;
@@ -72,8 +70,8 @@ export function UsersDataTable({ data, onSearch, initialSearch }: UsersDataTable
                                 <TableCell>
                                     <div className="flex flex-wrap gap-1">
                                         {user.roles?.map((role) => (
-                                            <Badge key={role} variant="secondary">
-                                                {role}
+                                            <Badge key={role.id} variant="secondary">
+                                                {role.name}
                                             </Badge>
                                         ))}
                                     </div>
@@ -107,7 +105,7 @@ export function UsersDataTable({ data, onSearch, initialSearch }: UsersDataTable
             {/* Pagination */}
             <div className="flex items-center justify-between">
                 <div className="text-sm text-gray-700">
-                    Mostrando {data.data.length} de {data.meta.total} usuarios
+                    Mostrando {data.data.length} de {data.total} usuarios
                 </div>
                 <div className="flex space-x-1">
                     {data.links.map((link, index) => (

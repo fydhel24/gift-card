@@ -4,7 +4,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/app-layout';
-import { update, index as usersIndex } from '@/routes/users';
+import { store, index as usersIndex } from '@/routes/users';
 import { type BreadcrumbItem } from '@/types';
 import { type Role } from '@/types/giftCard';
 import { Head, Link, router, usePage } from '@inertiajs/react';
@@ -21,14 +21,14 @@ const breadcrumbs: BreadcrumbItem[] = [
         href: usersIndex().url,
     },
     {
-        title: 'Editar Usuario',
+        title: 'Crear Usuario',
         href: '#',
     },
 ];
 
-export default function Edit() {
+export default function Create() {
     const page = usePage();
-    const { user, roles } = page.props as any;
+    const { roles } = page.props as any;
 
     const [formData, setFormData] = useState<{
         name: string;
@@ -37,18 +37,18 @@ export default function Edit() {
         password_confirmation: string;
         roles: string[];
     }>({
-        name: user.name,
-        email: user.email,
+        name: '',
+        email: '',
         password: '',
         password_confirmation: '',
-        roles: user.roles?.map((r: Role) => r.name) || [],
+        roles: [],
     });
 
     const [errors, setErrors] = useState<Record<string, string>>({});
 
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
-        router.put(update(user.id).url, formData, {
+        router.post(store().url, formData, {
             onError: (err) => setErrors(err),
             onSuccess: () => router.visit(usersIndex().url),
         });
@@ -65,7 +65,7 @@ export default function Edit() {
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Editar Usuario" />
+            <Head title="Crear Usuario" />
 
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
                 <div className="flex items-center gap-4">
@@ -80,7 +80,7 @@ export default function Edit() {
                 <div className="grid gap-4 md:grid-cols-2">
                     <Card>
                         <CardHeader>
-                            <CardTitle>Editar Usuario</CardTitle>
+                            <CardTitle>Crear Usuario</CardTitle>
                         </CardHeader>
                         <CardContent>
                             <form onSubmit={handleSubmit} className="space-y-4">
@@ -126,9 +126,7 @@ export default function Edit() {
                                 </div>
 
                                 <div>
-                                    <Label htmlFor="password">
-                                        Nueva Contraseña (opcional)
-                                    </Label>
+                                    <Label htmlFor="password">Contraseña</Label>
                                     <Input
                                         id="password"
                                         type="password"
@@ -139,6 +137,7 @@ export default function Edit() {
                                                 password: e.target.value,
                                             }))
                                         }
+                                        required
                                     />
                                     {errors.password && (
                                         <p className="text-sm text-red-600">
@@ -162,6 +161,7 @@ export default function Edit() {
                                                     e.target.value,
                                             }))
                                         }
+                                        required
                                     />
                                 </div>
 
@@ -202,9 +202,7 @@ export default function Edit() {
                                     )}
                                 </div>
 
-                                <Button type="submit">
-                                    Actualizar Usuario
-                                </Button>
+                                <Button type="submit">Crear Usuario</Button>
                             </form>
                         </CardContent>
                     </Card>
